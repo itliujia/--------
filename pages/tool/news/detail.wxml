@@ -1,0 +1,24 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view  slot="content" >
+文章详情</view></cu-custom>
+<view wx:for="{{re}}">
+        <!-- <view style="color:{{StyleColor}} ;font-size:50rpx;font-weight: bold;margin-top:20px;margin-left: {{NavBarHeight/2}}px;margin-right:{{NavBarHeight/2}}px ;">{{item.title}}</view>
+      <view class="content_ color-shadow-lg"><text style="color:{{StyleColor}} ;">发布时间：{{item.year}}年{{item.month}}月{{item.day}}日\n发布部门：{{item.college}}\n文章作者：{{item.author}}\n责任编辑：{{item.editor}}</text></view> -->
+<view class="content_ color-shadow-lg">
+<view class="flex-sub text-center">
+<view class="solid-bottom text-xl padding">
+<text class="text-black text-bold" style="color:{{StyleColor}} ;">{{item.title}}</text>
+</view>
+<view class="padding" style="text-align: left;font-size: 10px;">
+  <text style="color:{{StyleColor}} ;">发布时间：{{item.year}}年{{item.month}}月{{item.day}}日\n发布部门：{{item.college}}\n文章作者：{{item.author}}\n责任编辑：{{item.editor}}</text>
+</view>
+</view>
+
+
+</view>
+  <view class="content_ color-shadow-lg">
+    <mp-html content="{{item.concent}}" />
+    </view>
+  </view> 
+  <template is="footer" data="{{...source}}"></template>
+  <template is="copyright" ></template>

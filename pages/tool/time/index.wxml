@@ -1,0 +1,12 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+校历作息</view></cu-custom>
+<navigator hoverClass="none" url="xl" >
+            <view class="section section-entry color-shadow-blur" style="background-color:{{StyleColor}};">
+                <view class="section-title">科传校历</view>
+                <!-- <view class="section-info">{{info}}</view> -->
+            </view>
+        </navigator>
+
+
+<template is="nav" data="{{...nav2}}"></template>

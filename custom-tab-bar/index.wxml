@@ -1,0 +1,20 @@
+<view class="cu-bar tabbar">
+    <view bindtap="switchTab" class="action" data-index="0">
+        <image src="{{selected===0?list[0].selectedIconPath:list[0].iconPath}}"></image>
+        <view style="color: {{selected===0?selectedColor:color}}">{{list[0].text}}</view>
+    </view>
+    <view bindtap="switchTab" class="action" data-index="1">
+        <image src="{{selected===1?list[1].selectedIconPath:list[1].iconPath}}"></image>
+        <view style="color: {{selected===1?selectedColor:color}}">{{list[1].text}}</view>
+    </view>
+    <view class="action"></view>
+    <view bindtap="switchTab" class="action" data-index="2">
+        <image src="{{selected===2?list[2].selectedIconPath:list[2].iconPath}}"></image>
+        <view style="color: {{selected===2?selectedColor:color}}">{{list[2].text}}</view>
+    </view>
+    <view bindtap="switchTab" class="action" data-index="3">
+        <image src="{{selected===3?list[3].selectedIconPath:list[3].iconPath}}"></image>
+        <view style="color: {{selected===3?selectedColor:color}}">{{list[3].text}}</view>
+    </view>
+</view>
+<image bindtap="enterPublish" class="add-action" src="../img/kechuan.png" style="background-color:{{StyleColor}}"></image>

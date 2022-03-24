@@ -1,0 +1,68 @@
+.login_top {
+    margin: 100rpx;
+    text-align: center;
+}
+
+.login_top .icon {
+    font-size: 140rpx;
+    color: #016F94;
+}
+
+.login_top .text {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #515151;
+    margin-bottom: 50rpx;
+}
+
+.login-list {
+    margin: 50rpx 100rpx;
+}
+
+.login-item {
+    position: relative;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+    background: #fff;
+    height: 100rpx;
+    line-height: 100rpx;
+    border-radius: 50rpx;
+    box-shadow: 0 0 10rpx rgba(0,0,0,0.05);
+}
+
+.login-item input {
+    margin: 0 30rpx;
+    font-size: 32rpx;
+    color: #515151;
+    text-align: center;
+    width: 490rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.login-item .sd {
+    text-align: left;
+}
+
+.login-item .form-item-sd {
+    position: absolute;
+    top: 10rpx;
+    right: 0;
+    height: 80rpx;
+    width: 320rpx;
+}
+
+.login-button {
+    margin-top: 100rpx;
+    padding: 0;
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 80rpx;
+    box-shadow: 0 0 20rpx rgba(0,0,0,0.05);
+}
+
+.login-button image {
+    margin: 40rpx;
+    width: 60rpx;
+    height: 60rpx;
+}

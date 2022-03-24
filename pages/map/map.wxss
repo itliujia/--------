@@ -1,0 +1,59 @@
+map {
+    width: 750rpx;
+    height: 92.5vh;
+}
+
+.bottom_menu {
+    height: 7.5vh;
+    padding-top: 1.5vh;
+    width: 750rpx;
+    background-color: #47a86c;
+    z-index: 999;
+    display: flex;
+    white-space: nowrap;
+}
+
+.bottom_menu .search {
+    width: 100rpx;
+    height: 4.5vh;
+    text-align: center;
+}
+
+.bottom_menu .search image {
+    margin-top: 5rpx;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.bottom_menu scroll-view {
+    width: 650rpx;
+}
+
+.bottom_menu .search_box {
+    width: 598rpx;
+    height: 4.5vh;
+    text-align: center;
+    margin: 0 0 10rpx 50rpx;
+    border: 1rpx solid #ffffff;
+    border-radius: 10rpx;
+    display: flex;
+    font-size: 32rpx;
+    color: #ffffff;
+}
+
+.bottom_menu scroll-view view {
+    font-size: 30rpx;
+    line-height: 4vh;
+    text-align: center;
+    color: #fff;
+    width: 90rpx;
+    margin: 0 10rpx;
+    display: inline-block;
+    padding-bottom: 10rpx;
+}
+
+.bottom_menu .now {
+    font-size: 34rpx;
+    font-weight: bold;
+    border-bottom: 5rpx solid #fff;
+}

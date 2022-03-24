@@ -1,0 +1,35 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view  slot="content" >
+组织社团</view></cu-custom>
+
+
+<view class="movie-container">
+  <!-- 导航栏 -->
+  <view class="navbar" style="position: fixed;">
+    <block wx:for="{{navbarTitle}}" wx:key="index">
+      <view  class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap" data-type="{{item}}" >
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+
+    <view  class="cu-list menu" style="margin-top:60px; border-radius: {{NavBarHeight/2}}px;margin-left: {{NavBarHeight/4}}px;margin-right: {{NavBarHeight/4}}px;">
+    <view class="cu-item" wx:for="{{re}}" >
+      <view class="content padding-tb-sm">
+        <view>{{item.corporation_name}}</view>
+        <view class="text-gray text-sm">{{item.corporation_notice}}</view>
+      </view>
+      <view class="action" style="box-sizing: border-box;">
+        <button bindtap="detail" data-corporation="{{item.corporation_num}}" class="cu-btn round shadow" style="background-color:{{StyleColor}}">查看</button>
+  </view>
+
+  </view>
+</view>
+         
+      
+</view>
+
+
+
+<template is="footer" data="{{...source}}"></template>
+<template is="copyright" ></template>

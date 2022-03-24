@@ -1,0 +1,86 @@
+<!-- 大幻灯片 -->
+<swiper class="screen-swiper"  circular="true" autoplay="true" interval="5000" duration="500"  >
+    <swiper-item bindtap="viewBannerDetail" class="banner-item color-shadow-blur" data-url="{{bannerItem.banner_url}}" wx:for="{{bannerList}}" wx:for-index="bannerIndex" wx:for-item="bannerItem" wx:key="banner" wx:if="{{bannerItem.stype=='img'&&bannerItem.banner_status==0}}">
+      <image src="{{bannerItem.banner_src}}" mode="aspectFill" ></image>
+    </swiper-item>
+    <swiper-item  wx:for="{{bannerList}}"  wx:if="{{item.stype=='vedio'&&item.banner_status==0}}" autoplay="flase" interval="999999999999000"  >
+      <video src="{{item.banner_src}}" autoplay loop show-play-btn="{{flase}}" controls="{{flase}}" objectFit="cover"></video>
+    </swiper-item>
+</swiper>
+
+<!-- 导航区 -->
+<view class="cu-list grid col-4 no-border"  style="border-radius: {{NavBarHeight/2}}px;margin-top: -{{NavBarHeight/1.5}}px;">
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px; border-top-left-radius: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator url="../tool/yiqing/index" hover-class="none">
+      <image  class="simage "src="../../img/icons/yiqing.png" style="background:#FFF4F4;"></image>
+      <text class="text-black text-bold" >疫情防控</text>
+        </navigator>
+  </view>
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator url="../tool/library/index" hover-class="none">
+      <image  class="simage "src="../../img/icons/lib.png" style="background:rgb(25,179,146,0.1);"></image>
+      <text class="text-black text-bold" >图书馆</text>
+        </navigator>
+  </view>
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator url="../StuScore/index" hover-class="none">
+      <image  class="simage "src="../../img/icons/grade.png" style="background:rgb(249,220,180,0.2);"></image>
+      <text class="text-black text-bold" >成绩管理</text>
+        </navigator>
+  </view>
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator url="../map/map" hover-class="none">
+      <image  class="simage "src="../../img/icons/map.png" style="background:rgb(249,208,147,0.2);"></image>
+      <text class="text-black text-bold" >科传导览</text>
+        </navigator>
+  </view>
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white; border-top-right-radius: {{NavBarHeight/2}}px;">
+      <navigator hover-class="none" bindtap="goTool">
+      <image  class="simage "src="../../img/icons/more.png" style="background:rgb(56,137,255,0.2);"></image>
+      <text class="text-black text-bold"  >更多</text>
+        </navigator>
+  </view>
+</view>
+
+<!-- 新闻区 -->
+<view class="cu-card article no-card" style="margin: {{NavBarHeight/3}}px 0 0 0;">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="action">
+    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
+    <text class="text-xl text-bold"> 科传快讯</text>
+    </view>
+    </view>
+    <view wx:for="{{re}}">
+    <view class="content" style="margin-bottom:15px;" catchtap="onPostTap" data-postId="{{item.url||11}}">
+      <view class="desc" style="margin-right: {{NavBarHeight*1.5}}px;">
+        <view class="text-content">{{item.name}}</view>
+        <view>
+          <view class="cu-tag light sm round" style="color:{{StyleColor}}">{{item.year}}年{{item.month}}月{{item.day}}日</view>
+        </view>
+      </view>
+      <image src="{{item.src||'http://wsfile.dahe.cn/image/jpeg/20211019/1634614705426437.jpg'}}" mode="aspectFill"></image>
+    </view>
+  </view>
+  </view>
+</view>
+
+<view class="cu-card article no-card" style="margin: {{NavBarHeight/3}}px 0 0 0;">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="action">
+    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
+    <text class="text-xl text-bold"> 今日课表</text>
+    </view>
+    </view>
+    <view class="cu-list menu" >
+      <view class="cu-item" >
+        <view class="content text-cut">
+          <text class="text-grey">今日共 7 节课.</text>
+          <view>
+            <text bindtap='goLogin'>点击查看</text></view>
+        </view>      
+      </view>
+    </view>
+  </view>
+</view>

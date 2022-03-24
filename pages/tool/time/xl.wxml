@@ -1,0 +1,98 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+科传校历</view></cu-custom>
+<view class="notice">点击对应学期可以查看详情</view>
+<view class="cu-timeline" style="margin-top:20px;">
+
+  <view class="cu-item" wx:for="{{semester}}" bindtap="powerDrawer" data-title="{{item.semester_title}}" data-statu="open" data-semester="{{item.semester_semester}}">
+    <view class="content" style="padding: 30rpx!important;">
+      <view class="text-lg">
+        <text class="text-black">{{item.semester_title}}</text>
+      </view>
+      <view class="text-text-df">
+        <text class="text-grey">{{item.semester_date}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item text-red">
+    <view class="content" style="padding: 30rpx!important;">
+      <view class="text-lg">
+        <text class="text-black">2021年</text>
+      </view>
+      <view class="text-text-df">
+        <text class="text-grey">在科传微信小程序立项</text>
+      </view>
+    </view>
+  </view>
+  <view class="cu-item text-red">
+    <view class="content" style="padding: 30rpx!important;">
+      <view class="text-lg">
+        <text class="text-black">2021年</text>
+      </view>
+      <view class="text-text-df">
+        <text class="text-grey">更名为河南开封科技传媒学院</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cu-item text-red">
+    <view class="content" style="padding: 30rpx!important;">
+      <view class="text-lg">
+        <text class="text-black">2003年</text>
+      </view>
+      <view class="text-text-df">
+        <text class="text-grey">河南大学民生学院建校</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_content" style=" height: 70vh; ">
+    <view class="cu-timeline" >
+      <view class="flex-sub text-center">
+      <view class="text-xl padding">
+        <text class="text-black text-bold">{{title}}</text>
+      </view>  
+    </view>
+    
+      <view class="cu-item time" wx:for="{{re}}" style="padding: 11rpx 0rpx 0rpx 60rpx;position: relative;display: block;z-index: 0;" >
+      <view class="content" style="padding-left: 30rpx!important;padding-top: 10rpx!important;">
+      <view class="text-sm">
+        <text class="text-black">{{item.calendar_title}}</text>
+      </view>
+      <view class="text-xs">
+        <text class="text-grey">{{item.calendar_startdate}}{{item.calendar_enddate}}</text>
+      </view>
+      <view class="text-xs">
+        <text class="text-grey">{{item.calendar_notice}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+ 
+
+ 
+
+
+
+
+<template is="footer" data="{{...source}}"></template>
+<template is="copyright" ></template>
+

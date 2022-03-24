@@ -1,0 +1,25 @@
+
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+作息时间</view></cu-custom>
+<view class="table" style="margin-top:20px;">
+  <view class="tr bg-w">
+    <view class="th" style="background: {{StyleColor}};font-size: 14px; border-top-left-radius: {{NavBarHeight/2}}px;">时间</view>
+    <view class="th" style="background: {{StyleColor}};font-size: 14px;">节次</view>
+    <view class="th" style="background: {{StyleColor}};font-size: 14px;border-top-right-radius: {{NavBarHeight/2}}px;">时段</view>
+  </view>
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.time}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.xia}}</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.time}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.xia}}</view>
+    </view>
+  </block>
+  </view>
+  <template is="footer" data="{{...source}}"></template>
+  <template is="copyright" ></template>

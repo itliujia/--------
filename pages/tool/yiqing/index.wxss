@@ -1,0 +1,65 @@
+@import "../../../BaseWxss/1.wxss";
+
+@import "../../../BaseWxss/7.wxss";
+
+@import "../../../BaseWxss/9.wxss"; 
+
+
+
+
+/* .game-list {
+    padding-bottom: 124rpx;
+} */
+
+.game-list.iphone-x {
+    padding-bottom: 158rpx;
+}
+
+.game-item {
+    margin: 0 24rpx;
+    padding: 24rpx 0;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.game-item__icon {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 12rpx;
+    overflow: hidden;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.game-item__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 110rpx;
+}
+
+.game-item__name {
+    color: #363636;
+    font-size: 32rpx;
+    font-weight: 500;
+}
+
+.game-item__desc {
+    color: #686868;
+    font-size: 24rpx;
+}
+
+.game-item__btn {
+    width: 140rpx;
+    height: 60rpx;
+    font-weight: 500;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(-98.9deg,rgba(111,109,246,1),rgba(82,129,255,1));
+    border-radius: 30rpx;
+}

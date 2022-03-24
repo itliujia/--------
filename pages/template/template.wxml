@@ -1,0 +1,35 @@
+<template name="footer">
+  
+<view class="text-gray text-sm text-center" style="margin-top: 20px;">
+  以上信息由 {{author}} 提供</view>
+</template>
+
+<template name="copyright">
+  <view class="text-gray text-sm text-center padding"></view>
+  <view class="text-gray text-xs text-center">在科传，就用在科传</view>
+  <view class="text-gray text-sm text-center " style="margin-top: 5px;">Copyright © 2021-2022 刘童鞋</view>
+  <view class="text-gray text-sm text-center padding"></view>
+  </template>
+
+
+
+<template name="nav">
+  <navigator hoverClass="none" url="{{url}}" >
+            <view class="section section-entry color-shadow-blur" style="background-color:{{Color}};">
+                <view class="section-title">{{title}}</view>
+                <!-- <view class="section-info">{{info}}</view> -->
+            </view>
+        </navigator>
+</template>
+
+<template name="wxapp">
+  <navigator target="miniProgram" open-type="navigate" app-id="{{id}}"  hoverClass="none">
+            <view class="section section-entry color-shadow-blur" style="background-color:{{Color}};">
+                <view class="section-title">{{title}}</view>
+                <!-- <view class="section-info">{{info}}</view> -->
+            </view>
+        </navigator>
+</template>
+
+
+

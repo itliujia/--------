@@ -1,0 +1,82 @@
+<import src="../../template/template.wxml" />
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}">
+    <view slot="content">
+        藏馆查询</view>
+</cu-custom>
+<block wx:if="{{re}}">
+    <view class="TitleBar" style="background:{{StyleColor}};">
+        <navigator class="left_edit" openType="navigateBack">
+            <text class="fa fa-angle-left"></text> 返回
+        </navigator>
+        <view class="title">藏馆查询</view>
+    </view>
+
+    <view wx:if="{{!(re.code==200)}}">
+        <view class="PageCont PageWithTitle">
+            <view class="login_top">
+                <view class="icon">
+                    <text class="cuIcon-roundclosefill" style="color:red;"></text>
+                </view>
+                <view class="text">未查询关键词包括“{{re.kw}}”的图书数据。</view>
+            </view>
+        </view>
+    </view>
+<view wx:else>
+    <view class="content_ color-shadow-lg" style="text-align: center;"><text class=" text-sm" style="color:red;">关键词包括“{{re.kw}}”的图书，共{{re.sum}}条数据</text></view>
+    <!-- <view wx:for="{{re.data}}">
+        <view class="content_ color-shadow-lg" catchtap="checkItem" data-id="{{item.id}}" data-author="{{item.author}}">
+            <text style="color:black;">{{item.name}}\n</text>
+            <text style="color:gray;font-size: 20rpx;">图书作者：{{item.author}}\n图书索引：{{item.bookno}}\n出版社名：{{item.publisher}}</text>
+        </view>
+    </view> -->
+    
+    <view class="book_info"  catchtap="checkItem" data-id="{{item.id}}" data-author="{{item.author}}" wx:for="{{re.data}}">
+            <image class="book_image" mode="aspectFill" src="https://img1.doubanio.com/view/subject/s/public/s28790337.jpg"></image>
+            <view class="right">
+                <view class="title">{{item.name}}</view>
+                <view class="info"><text style="color:gray;font-size: 20rpx;">图书作者：{{item.author}}\n图书索引：{{item.bookno}}\n出版社名：{{item.publisher}}</text>
+        </view>
+            </view>
+        </view>
+    
+    
+    <view class="grid col-3 padding-sm">
+        <view class="text-center">
+            <button class="cu-btn round bg-red shadow" bindtap="lastPage" data-kw="{{re.kw}}" data-page="{{re.page}}" data-now="{{re.now}}">上一页</button>
+        </view>
+        <view class="text-center">
+            <button class="cu-btn round bg-grey" style="font-size: 20rpx;">第{{re.now}}页，共{{re.page}}页</button>
+        </view>
+        <view class="text-center">
+            <button class="cu-btn round bg-orange shadow" bindtap="nextPage" data-kw="{{re.kw}}" data-page="{{re.page}}" data-now="{{re.now}}">下一页</button>
+        </view>
+
+    </view>
+</view>
+    <template is="footer" data="{{...source}}"></template>
+    <template is="copyright"></template>
+
+
+</block>
+<view class="PageCont" wx:else>
+    <navigator class="return-btn" openType="navigateBack">
+        <text class="fa fa-angle-left"></text> 返回
+    </navigator>
+    <view class="login_top">
+        <view class="icon">
+            <text class="fa fa-book" style="color:{{StyleColor}};"></text>
+        </view>
+        <view class="text">馆藏书籍搜索</view>
+    </view>
+    <form bindsubmit="GetLib">
+        <view class="login-list">
+            <view class="login-item">
+                <input placeholder="图书信息" type="text" name="kw"></input>
+            </view>
+
+        </view>
+        <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+            <image src="../../../img/search.png"></image>
+        </button>
+    </form>
+</view>

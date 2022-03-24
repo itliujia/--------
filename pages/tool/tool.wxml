@@ -1,0 +1,109 @@
+
+<view >
+<swiper class="screen-swiper square-dot" style="min-height: 350rpx!important;" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500"  indicator-color="#8799a3" indicator-active-color="#fff">
+  <swiper-item wx:for="{{bannerList}}" wx:for-index="bannerIndex" wx:for-item="bannerItem" wx:key="banner">
+    <image src="{{bannerItem.banner_src}}" mode="aspectFill" ></image>
+  </swiper-item>
+</swiper>
+
+
+
+
+
+    <view class="cu-card article no-card section inner ripple" >
+        <view class="cu-item shadow">
+            <view class="title">
+                <view class="action">
+                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
+                    <text class="text-xl text-bold"> 你好科传</text>
+                </view>
+            </view>
+
+            <view class="cu-list grid col-4 no-border">
+                <view class="cu-item " wx:for="{{app_s.new}}" style="background-color: white;">
+                    <navigator url="{{item.url}}" hover-class="none">
+                        <image class="simage " src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
+                        <text class="text-black text-bold" >{{lang_en?item.cn_:item.cn}}</text>
+                    </navigator>
+
+                </view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+    <view class="cu-card article no-card" style="animation-delay:150ms;margin: {{NavBarHeight/3}}px 0 0 0;">
+        <view class="cu-item shadow">
+            <view class="title">
+                <view class="action">
+                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;" ></text> -->
+                    <text class="text-xl text-bold"> 学在科传</text>
+                </view>
+            </view>
+
+            <view class="cu-list grid col-4 no-border">
+                <view class="cu-item " wx:for="{{app_s.learn}}" style="background-color: white;">
+                    <navigator url="{{item.url}}" hover-class="none">
+                        <image class="simage " src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
+                        <text class="text-black text-bold"  >{{lang_en?item.cn_:item.cn}}</text>
+                    </navigator>
+
+                </view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+    <view class="cu-card article no-card" style="animation-delay:300ms;margin: {{NavBarHeight/3}}px 0 0 0;">
+        <view class="cu-item shadow">
+            <view class="title">
+                <view class="action">
+                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
+                    <text class="text-xl text-bold"> 行在科传</text>
+                </view>
+            </view>
+
+            <view class="cu-list grid col-4 no-border">
+                <view class="cu-item " wx:for="{{app_s.live}}" style="background-color: white;">
+                    <navigator url="{{item.url}}" hover-class="none">
+                        <image class="simage " src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
+                        <text class="text-black text-bold">{{lang_en?item.cn_:item.cn}}</text>
+                    </navigator>
+
+                </view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+    <view class="cu-card article no-card" style="animation-delay:450ms;margin: {{NavBarHeight/3}}px 0 0 0;">
+        <view class="cu-item shadow">
+            <view class="title">
+                <view class="action">
+                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
+                    <text class="text-xl text-bold">再见科传</text>
+                </view>
+            </view>
+
+            <view class="cu-list grid col-4 no-border">
+                <view class="cu-item " wx:for="{{app_s.go}}" style="background-color: white;">
+                    <navigator url="{{item.url}}" hover-class="none">
+                        <image class="simage" src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
+                        <text class="text-black text-bold"  >{{lang_en?item.cn_:item.cn}}</text>
+                    </navigator>
+
+                </view>
+            </view>
+
+
+
+        </view>
+    </view>
+
+</view>

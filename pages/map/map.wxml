@@ -1,0 +1,11 @@
+<cover-image bindtap="return" class="return-btn-img" src="../../img/return_btn.png" style="margin-top:{{NavBarHeight}}px;"></cover-image>
+<map showLocation bindcallouttap="ViewPoi" id="CampusMap" markers="{{map_markers}}"></map>
+<view class="bottom_menu" style="background:{{StyleColor}};">
+    <input bindconfirm="Search" class="search_box" confirmType="搜索" placeholder="请输入您想查找的地方" placeholderStyle="color:#ffffff;" type="text" wx:if="{{ShowSearch}}"></input>
+    <scroll-view wx:else>
+        <view bindtap="ShowPOI" class="{{item.id==now_tab?'now':''}}" data-id="{{item.id}}" wx:for="{{tab}}">{{item.title}}</view>
+    </scroll-view>
+    <view class="search">
+        <image src="../../img/map.png"></image>
+    </view>
+</view>

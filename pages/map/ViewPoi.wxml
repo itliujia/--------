@@ -1,0 +1,12 @@
+<view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<navigator class="return-btn" openType="navigateBack" style="margin-top:{{NavBarHeight}}px;">
+    <text class="fa fa-angle-left"></text> 返回</navigator>
+<view class="PageCont" style="overflow:hidden;padding-top:{{NavBarHeight}}px;">
+    <view class="bg">
+        <view class="img" style="background-image: url({{SatImg}})"></view>
+        <scroll-view scrollY class="info">
+            <view>{{poi.info}}</view>
+        </scroll-view>
+        <button bindtap="bindcallouttap" style="width: 70vw;">查看路线</button>
+    </view>
+</view>

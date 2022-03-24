@@ -1,0 +1,11 @@
+@import "../../../BaseWxss/1.wxss";
+.notice{
+  
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 26rpx;
+  color: #888;
+  display: block;
+  /* float: right; */
+  /* margin-right: 15px; */
+}

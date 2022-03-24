@@ -1,0 +1,197 @@
+<import src="../../template/template.wxml"/> 
+<wxs src="time.wxs" module="timeTranslate"></wxs>
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+故障报修</view></cu-custom>
+
+<view wx:if="{{f==0}}">
+  <view class="PageCont PageWithTitle">
+    <view class="header" style="background-color:transparent;height:{{NavBarHeight*2}}px">
+        <view class="item" style="color: {{StyleColor}};">我的报修记录</view>
+        <navigator class="item add" bindtap="baoxiu" style="color:{{StyleColor}};" url="../rsp/AddNew">
+            <text class="fa fa-pencil-square-o"></text> 我要报修
+            </navigator>
+       
+    </view>
+    <view class="content">
+      <block wx:if="{{code==400}}" >
+        <view class="foot1">您还未报修过喔</view>
+      
+      </block>
+        
+        <block wx:else>
+            <view class="task-item inner ripple flipInX"  wx:for="{{ree}}">
+                <view class="task-item-title">
+                    <view style="float:right;">
+                        <view class="state" style="color:{{StyleColor}};">{{item.repair_name}}</view>
+                        <view class="number">{{item.repair_uid}}</view>
+                    </view>
+                    <text class="title" style="color:{{StyleColor}};">{{item.repair_type}}</text>
+                </view>
+                <view class="task-item-content">
+                    <view>
+                        报修地址： {{item.repair_address}}</view>
+                    <view>
+                        报修内容： {{item.repair_content}}</view>
+                    <view>
+                        报修时间： {{timeTranslate.timestampToTime(item.repair_createtime) }}</view>
+                        <view>
+                        当前状态： {{item.	repair_statue}}</view>
+                        <view>
+                        处理时间： {{item.repair_updatetime==0?'未处理':timeTranslate.timestampToTime(item.repair_updatetime) }}</view>
+                      
+                </view>
+
+            <navigator class="item add" hoverClass="none"  data-id="{{item.repair_id}}" bindtap="quxiao" style="color:{{StyleColor}};float: left;margin: 10px 45px;" url="../rsp/AddNew">
+            <text class="fa fa-pencil-square-o"></text> 取消报修工单
+            </navigator>
+            <navigator class="item add"  hoverClass="none" bindtap="xiugai" data-id="{{item.repair_id}}" data-statue="{{item.repair_statue}}" data-type="{{item.repair_type}}" data-content="{{item.repair_content}}"data-id="{{item.repair_id}}" data-address="{{item.repair_address}}" style="color:{{StyleColor}};  margin-top: 10px;margin-left: -40px;" url="../rsp/AddNew">
+            <text class="fa fa-pencil-square-o"></text> 修改报修工单
+            </navigator>
+            </view>
+        </block>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+  <!-- <view style="color:{{StyleColor}};text-align: center;font-size:50rpx;font-weight: bold;margin-top:20px;margin-left: {{NavBarHeight/2}}px;margin-right:{{NavBarHeight/2}}px ;">报修记录</view>
+<view style="margin-top: 100rpx;" wx:for="{{ree}}">
+        <view class="log_box">
+            <view class="score_log">
+                <view class="time">学号</view>
+                <view class="act">{{item.repair_uid}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">姓名</view>
+                <view class="act">{{item.repair_name}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">手机号</view>
+                <view class="act">{{item.repair_phone}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">报修类型</view>
+                <view class="act">{{item.repair_type}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">报修地址</view>
+                <view class="act">{{item.repair_address}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">报修内容</view>
+                <view class="act">{{item.repair_content}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">报修时间</view>
+                <view class="act">{{timeTranslate.timestampToTime(item.repair_createtime) }}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">当前状态</view>
+                <view class="act">{{item.	repair_statue}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">处理时间</view>
+                <view class="act">{{item.repair_updatetime==0?'未处理':timeTranslate.timestampToTime(item.repair_updatetime) }}</view>
+            </view>
+            <view class="btn_box">
+                <view  class="clear" bindtap="showModal" data-target="DialogModal1">修改认证</view>
+                <button  class="save"  bindtap="pupdate"  style="background: {{StyleColor}};">修改电话</button>
+            </view> 
+        </view>
+
+</view> -->
+
+
+
+
+
+
+</view>
+
+
+<view wx:if="{{f==2}}">
+<view style="color:{{StyleColor}};text-align: center;font-size:50rpx;font-weight: bold;margin-top:20px;margin-left: {{NavBarHeight/2}}px;margin-right:{{NavBarHeight/2}}px ;">故障填报</view>
+<form  bindsubmit="addx">
+	<view class="cu-form-group margin-top">
+		<view class="title">你的学号</view>
+		<input maxlength="0" type="number" value="{{sno}}" name="sno" class="ree" placeholder="10位学号"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">你的姓名</view>
+		<input maxlength="0"  name="name"  value="{{name}}" class="ree" placeholder="你的姓名"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input  maxlength="0" type="number"  value="{{phone}}" name="phone" class="ree" placeholder="11位手机号"></input>
+  </view>
+	<view class="cu-form-group">
+		<view class="title">报修类型</view>
+		<picker bindchange="typeChange" name="type" value="{{type[index]}}" range="{{type}}">
+			<view class="picker">
+				{{index?type[index]:'选择类型'}}
+			</view>
+		</picker>
+  </view>
+  <view class="cu-form-group">
+		<textarea maxlength="-1"  name="address" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="报修地址"></textarea>
+  </view>
+  <view class="cu-form-group">
+		<textarea maxlength="-1" name="content" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="报修内容"></textarea>
+  </view>
+
+  <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+            <image src="../../../img/login.png"></image>
+        </button>
+
+</form>
+</view>
+<view wx:if="{{f==1}}">
+<view style="color:{{StyleColor}};text-align: center;font-size:50rpx;font-weight: bold;margin-top:20px;margin-left: {{NavBarHeight/2}}px;margin-right:{{NavBarHeight/2}}px ;">修改报修工单</view>
+<form  bindsubmit="xiugaix">
+	<view class="cu-form-group margin-top">
+		<view class="title">你的学号</view>
+		<input maxlength="0" type="number" value="{{sno}}" name="sno" class="ree" placeholder="10位学号"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">你的姓名</view>
+		<input maxlength="0"  name="name"  value="{{name}}" class="ree" placeholder="你的姓名"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input  maxlength="0" type="number"  value="{{phone}}" name="phone" class="ree" placeholder="11位手机号"></input>
+  </view>
+	<view class="cu-form-group">
+		<view class="title">报修类型</view>
+		<picker bindchange="typeChange" name="type" value="{{index?type[index]:typee}}" range="{{type}}">
+			<view class="picker">
+				{{index?type[index]:typee}}
+			</view>
+		</picker>
+  </view>
+  <view class="cu-form-group">
+		<textarea maxlength="-1" value="{{address}}" name="address" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="报修地址"></textarea>
+  </view>
+  <view class="cu-form-group">
+		<textarea maxlength="-1" value="{{content}}" name="content" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="报修内容"></textarea>
+  </view>
+
+  <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+            <image src="../../../img/login.png"></image>
+        </button>
+
+</form>
+</view>
+
+
+
+
+
+
+
+<template is="copyright" ></template>

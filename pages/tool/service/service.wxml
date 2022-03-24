@@ -1,0 +1,10 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+科传服务</view></cu-custom>
+<navigator hoverClass="none"  bindtap="baoxiu"  url="pages/tool/service/service">
+            <view class="section section-entry color-shadow-blur" style="background-color:{{StyleColor}};">
+                <view class="section-title">故障报修</view>
+            </view>
+        </navigator>
+<template is="wxapp" data="{{...nav2}}"></template>
+<template is="wxapp" data="{{...nav3}}"></template>

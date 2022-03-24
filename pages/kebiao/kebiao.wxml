@@ -1,0 +1,99 @@
+<view class="flex-sub" style="background-color:{{StyleColor}};height: {{NavBarHeight}}px;">
+</view>
+<view class="cu-bar" style="background-color:{{StyleColor}};height: {{NavBarHeight}}px;">
+  <view class="content text-xxl">
+    <text class="text-white text-bold" style="font-size: 20px;">课表</text>
+  </view>
+</view>
+
+<view style="margin-top: {{NavBarHeight/2}}px;">
+  <picker class='week_num' mode="selector" range="{{zhou_num}}" bindchange="select" value="{{now_week-1}}">
+    <view style="line-height:{{NavBarHeight}}px;height:100%">
+      <text class="text-black text-lg">第 {{now_week}} 周 </text>
+      <text class="icon-unfold lg text-black"></text>
+    </view>
+  </picker>
+  <text class=" icon-add settings text-black" style="margin-top:-{{NavBarHeight}}px;line-height:{{NavBarHeight}}px;height:{{NavBarHeight}}px;transform:rotate({{showModalStatus?135:0}}deg)" bindtap='listDisplay' data-statu="open"></text> 
+
+</view>
+<view class="movie-container">
+  <!-- 导航栏 -->
+  <view class="navbar">
+    <block wx:for="{{navbarTitle}}" wx:key="index">
+      <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap" data-type="{{item}}">
+        <text style=" font-size: 25rpx;">{{item}}</text>
+      </view>
+    </block>
+  </view>
+  <view style="margin-top:50px">
+
+    <block wx:if="{{ree.code==400}}">
+      <view class="content_ color-shadow-lg">第{{now_week}}周 {{navbarTitle[navbarActiveIndex]}}无课，去放松下吧！</view>
+    </block>
+
+    <block wx:else>
+      <view class="task-item inner ripple flipInX" wx:for="{{re}}">
+        <view class="task-item-title">
+          <view style="float:right;">
+            <view class="state" style="color:{{StyleColor}};">第{{item.timeStart}}-{{item.timeEnd}}节</view>
+            <!-- <view class="number">{{item.weekNum}}</view> -->
+          </view>
+          <text class="title" style="color:{{StyleColor}};">{{item.courseName}}</text>
+        </view>
+        <view class="task-item-content">
+          <view>
+            <text class="cuIcon-location textlong" style="color:{{StyleColor}};"></text><text class="textlong2" style="color:{{StyleColor}};">地点</text><text class="textlong1">{{item.classRoom}}</text>
+          </view>
+          <view>
+            <text class="cuIcon-people textlong" style="color:{{StyleColor}};"></text><text class="textlong2" style="color:{{StyleColor}};">老师</text><text class="textlong1">{{item.teacherName}}</text>
+          </view>
+          <wxs src="time.wxs" module="time" />
+          <view>
+            <text class="cuIcon-time textlong" style="color:{{StyleColor}};"></text><text class="textlong2" style="color:{{StyleColor}};">时间</text>{{time.setTimer(item.timeStart,item.timeEnd)}}</view>
+          <!-- <view>
+          <text class="cuIcon-calendar textlong" style="color:{{StyleColor}};"></text><text class="textlong2" style="color:{{StyleColor}};">周数</text><text class="textlong1">{{item.classRoo}}</text>
+        </view> -->
+        </view>
+      </view>
+    </block>
+
+    <view class="padding">
+  <!-- <view class="cu-tag radius sm">小尺寸</view> -->
+
+  <view class="cu-tag light sm round" style="float: right;color:{{StyleColor}}">{{banji}}</view>
+  <!-- <view class="cu-tag radius" style="float: right;">{{banji}}</view> -->
+</view>
+  </view>
+
+</view>
+<!--mask-->
+<view class="drawer_screen" bindtap="listDisplay" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <!--drawer content-->
+    <view class="drawer_content" style=" height: 20vh; ">
+      <view class="cu-list grid col-3 no-border"  style="border-radius: {{NavBarHeight/2}}px;">
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px; border-top-left-radius: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator bindtap="Clear" hover-class="none">
+      <image  class="simage "src="../../img/icons/yiqing.png" style="background:#FFF4F4;"></image>
+      <text class="text-black text-bold" >更新课表</text>
+        </navigator>
+  </view>
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator url="../lib/lib" hover-class="none">
+      <image  class="simage "src="../../img/icons/lib.png" style="background:rgb(25,179,146,0.1);"></image>
+      <text class="text-black text-bold" >别班课表</text>
+        </navigator>
+  </view>
+  <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
+      <navigator url="../StuScore/index" hover-class="none">
+      <image  class="simage "src="../../img/index/share.png" style="background:rgb(249,220,180,0.2);"></image>
+      <text class="text-black text-bold" >分享课表</text>
+        </navigator>
+  </view>
+
+</view>
+    
+    </view>
+</view>

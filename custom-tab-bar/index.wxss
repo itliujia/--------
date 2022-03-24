@@ -1,0 +1,49 @@
+.cu-bar.tabbar {
+    display: flex;
+    position: fixed;
+    width: 750rpx;
+    z-index: 99;
+    bottom: 0;
+    align-items: center;
+    min-height: 100rpx;
+    justify-content: space-between;
+    background: #f4f4f4;
+    height: calc(100rpx + env(safe-area-inset-bottom) / 2);
+    padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+}
+
+.cu-bar.tabbar.shadow {
+    box-shadow: 0 -1rpx 6rpx rgba(0,0,0,0.1);
+}
+
+.cu-bar.tabbar .action {
+    font-size: 22rpx;
+    flex: 1;
+    text-align: center;
+    height: auto;
+    line-height: 1;
+    margin: 0;
+    overflow: initial;
+}
+
+.cu-bar.tabbar .action image {
+    margin: 0 auto;
+    width: 50rpx;
+    height: 50rpx;
+    margin-bottom: 10rpx;
+}
+
+.add-action {
+    position: fixed;
+    z-index: 999;
+    bottom: 20rpx;
+    left: 320rpx;
+    padding: 20rpx;
+    margin-bottom: calc(env(safe-area-inset-bottom) / 2);
+    border: 10rpx #f4f4f4 solid;
+    box-shadow: 0 -3rpx 8rpx rgba(0,0,0,0.08);
+    background-color: #515151;
+    width: 50rpx;
+    height: 50rpx;
+    border-radius: 50%;
+}

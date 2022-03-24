@@ -1,0 +1,258 @@
+@import "../../../BaseWxss/1.wxss";
+
+@import "../../../BaseWxss/7.wxss";
+
+@import "../../../BaseWxss/9.wxss"; 
+.cells {
+  color: #515151;
+  margin: 30rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+  border-radius: 20rpx;
+  box-shadow: 0 0 30rpx rgba(0,0,0,0.03);
+  background: #fff;
+  overflow: hidden;
+}
+
+.cells::before,.cells::after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  height: 1px;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  background-color: #e5e5e5;
+}
+
+.cells::before {
+  top: 0;
+}
+
+.cells::after {
+  bottom: 0;
+}
+
+.cell {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  height: 100rpx;
+  padding: 0 40rpx;
+  font-size: 32rpx;
+  line-height: 100rpx;
+}
+
+.cell:first-child::before {
+  display: none;
+}
+
+.cell .fa {
+  width: 50rpx;
+}
+
+.cell::before {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  background-color: #e3e3e3;
+}
+
+.cell:active {
+  background-color: #fafafa;
+}
+
+.cell-ft {
+  color: #bbb;
+}
+
+.cell-access .cell-ft {
+  padding-right: 13px;
+  position: relative;
+}
+
+.cell-access .cell-ft::after {
+  content: '';
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  transform: matrix(0.71,0.71,-0.71,0.71,0,0);
+  position: absolute;
+  top: 50%;
+  margin-top: -4px;
+  right: 2px;
+}
+
+.cells .fa {
+  color: #47a86c;
+}
+.header {
+  position: fixed;
+  width: 100%;
+  height: 60rpx;
+  background: #47a86c;
+  top: 80rpx;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  padding-left: 30rpx;
+}
+
+.header .item {
+  text-align: center;
+  font-size: 34rpx;
+  color: #fff;
+  width: 150rpx;
+  margin: 0 20rpx;
+}
+
+.header .on {
+  font-weight: bold;
+  border-bottom: 8rpx solid #fff;
+}
+
+.publish {
+  z-index: 999;
+  position: fixed;
+  width: 300rpx;
+  margin: 0 auto;
+  padding: 0;
+  bottom: 80rpx;
+  left: 225rpx;
+  box-sizing: content-box;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  line-height: 80rpx;
+  height: 80rpx;
+  border-radius: 100rpx;
+  background-color: #47a86c;
+  border: 5rpx solid #f4f4f4;
+  box-shadow: 0 0 20rpx #47a86c;
+}
+
+.content {
+  margin-top: 100rpx;
+}
+
+.book_info {
+  margin: 30rpx auto;
+  width: 660rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 25rpx;
+  display: flex;
+  color: #515151;
+}
+
+.book_info .book_image {
+  width: 180rpx;
+  height: 270rpx;
+  border-radius: 10rpx;
+}
+
+.book_info .right {
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  width: 430rpx;
+}
+
+.book_info .title {
+  margin-bottom: 20rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.book_info .info {
+  font-size: 26rpx;
+  color: #666;
+  line-height: 40rpx;
+}
+
+.book_info .price {
+  font-size: 32rpx;
+  margin-left: 10rpx;
+  color: #666;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.book_info .per {
+  margin-left: 20rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 24rpx;
+  border: 1rpx #515151 solid;
+  border-radius: 10rpx;
+  padding: 0 10rpx;
+}
+
+.book_info .sale {
+  border-top: 1rpx #f4f4f4 solid;
+  padding-top: 20rpx;
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.book_info .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 100rpx;
+}
+
+.search-hd {
+  width: 100%;
+}
+
+.search-area {
+  box-sizing: border-box;
+  position: relative;
+  margin: 30rpx 20rpx;
+  margin-bottom: 0;
+  font-size: 30rpx;
+}
+
+.search-txt {
+  box-sizing: border-box;
+  width: 100%;
+  height: 80rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  border-radius: 20rpx;
+  background: #fff;
+}
+
+.search-btn {
+  color: #515151;
+  background: #fff;
+  margin: 0;
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  right: 0;
+  height: 80rpx;
+  width: 120rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 34rpx;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  background: #fff;
+}
+
+.search-btn::after {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}

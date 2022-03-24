@@ -1,0 +1,27 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view  slot="content" >
+影约科传</view></cu-custom>
+
+<view class="content_ color-shadow-lg" >
+  <view wx:if="{{status==0}}">
+   <player-component vid="{{vid}}"/>
+  </view>
+   <view wx:if="{{status==1}}">
+  <view class="section tc" style="position:relative;width:100%; height: 345rpx;">
+   <video poster="{{notice}}" style="width: 100%;height: 100%;" src="{{vid}}"></video>
+  </view>
+</view>
+   <view class="flex-sub text-center" style="margin-top: 20rpx;">
+
+ <text style="color:{{StyleColor}};font-size: 10px;">当前播放：{{name}}</text></view>
+
+</view>
+
+<view class="notice">点击即可播放视频</view>
+<view  class="cu-list menu" style=" border-radius: {{NavBarHeight/2}}px;">
+      <view wx:for="{{re}}">
+    <view class="content_ color-shadow-lg" catchtap="onPostTap" data-name="{{item.media_name}}" data-notice="{{item.media_notice}}" data-status="{{item.media_status}}" data-vid="{{item.media_vid}}"><text style="color:{{StyleColor}} ;">{{item.media_name}}\n</text><text style="color:{{StyleColor}};font-size: 10px;">{{item.media_time}}</text></view>
+   </view>
+</view>
+
+<template is="copyright" ></template>

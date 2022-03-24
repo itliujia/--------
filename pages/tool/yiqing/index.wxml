@@ -1,0 +1,20 @@
+<import src="../../template/template.wxml"/> 
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+疫情防控</view></cu-custom>
+<view class="PageCont" >
+    <view class="game-list {{isIphoneX&&'iphone-x'}}">
+        <navigator hover-class="none" appId="{{item.appid}}" bind:tap="gameTap" class="game-item" data-appid="{{item.appid}}" data-index="{{index}}" data-name="{{item.name}}" extraData="" openType="navigate" path="{{item.path}}" target="miniProgram" wx:for="{{gameList}}" wx:key="item.appid">
+            <image class="game-item__icon" src="{{item.icon}}"></image>
+            <view class="game-item__content">
+                <view class="game-item__name">{{item.name}}</view>
+                <view class="game-item__desc">{{item.desc}}</view>
+            </view>
+            <view class="game-item__btn" style="background:{{StyleColor}};">进入</view>
+        </navigator>
+        <template is="footer" data="{{...source}}"></template>
+    </view>
+    
+</view>
+
+<template is="copyright" ></template>
+

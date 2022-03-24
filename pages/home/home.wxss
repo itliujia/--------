@@ -1,0 +1,23 @@
+.simage {  
+  padding: 15rpx;
+  border-radius: 20rpx;
+  background: #016F94;
+  margin: 0 auto;
+  width: 60rpx;
+  height: 60rpx;
+}
+page{
+  padding-bottom:  calc(96rpx + env(safe-area-inset-bottom));
+}
+.swiper_container {
+  height: 55rpx;
+  width: 80vw;
+ }
+  
+ .swiper_item {
+  font-size: 25rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 2px;
+ }

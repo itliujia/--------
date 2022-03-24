@@ -1,0 +1,91 @@
+<import src="../../template/template.wxml" />
+<!-- <cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}">
+  <view slot="content">
+    图书详情</view>
+</cu-custom>
+<view class="content_ color-shadow-lg">
+  <view class="flex-sub text-center">
+    <view class="solid-bottom text-xl padding">
+      <text class="text-black text-bold" style="color:black;">{{re.name}}</text>
+    </view>
+    <view class="padding" style="text-align: left;font-size: 10px;">
+      <text style="color:gray ;">图书作者：{{author}}\n出版信息：{{re.publisher}}\n图书简介：{{re.text}}</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="content_ color-shadow-lg">
+  <view class="flex-sub text-center">
+    <view class="text-xl padding">
+      <text class="text-black text-bold" style="color:black;">图书馆共{{re.sum}}册此藏书</text>
+    </view>
+  </view>
+</view>
+
+
+
+<view wx:for="{{re.store}}">
+  <view class="content_ color-shadow-lg">
+    <text style="color:black;">{{re.name}}\n</text>
+    <text style="color:grey;font-size: 10px;">{{item.bookzt}}\n条码编号：{{item.bookid}}\n索引编号：{{item.bookno}}\n藏书馆库：{{item.bookku}}</text>
+  </view>
+</view> -->
+
+
+
+<view class="NavBar {{ShowBar?'inner ripple fadeIn':'inner ripple fadeOut'}}" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<view class="TitleBar {{ShowBar?'inner ripple fadeIn':'inner ripple fadeOut'}}" style="background:{{StyleColor}};top:{{NavBarHeight}}px;">
+    <navigator class="left_edit" openType="navigateBack">
+        <text class="fa fa-angle-left"></text> 返回</navigator>
+    <view class="title">{{re.name}}
+  </view>
+</view>
+<navigator class="return-btn {{ShowBar?'inner ripple fadeOut':'inner ripple fadeIn'}}" openType="navigateBack" style="margin-top:{{NavBarHeight}}px;">
+    <text class="fa fa-angle-left"></text> 返回</navigator>
+<view class="fd-hd" style="padding-top:{{NavBarHeight}}px;">
+    <view class="fd-hd-bg" style="background-image: url(https://img1.doubanio.com/view/subject/s/public/s34079997.jpg)"></view>
+    <image class="fd-cover"  mode="aspectFill" src="https://img1.doubanio.com/view/subject/s/public/s28790337.jpg"></image>
+</view>
+
+
+
+<view class="book_info">
+    <view class="title" style="color:black">{{re.name}}</view>
+    <view class="info" style="color:grey">出版：{{re.publisher}} </view>
+    <view class="info" style="color:grey">作者：{{author}}</view>
+</view>
+
+
+
+
+<view class="book_info">
+    <view class="title" style="color:black">图书馆共{{re.sum}}册此藏书</view>
+    <view wx:for="{{re.store}}">
+  <view class="content_ color-shadow-lg" style="width: 80vw;background:#D3D3D3;">
+    <text style="color:black;">{{re.name}}\n</text>
+    <text style="color:grey;font-size: 10px;">{{item.bookzt}}\n条码编号：{{item.bookid}}\n索引编号：{{item.bookno}}\n藏书馆库：{{item.bookku}}</text>
+  </view>
+</view>
+
+</view>
+<view class="book_info">
+    <view class="title" style="color:black">图书简介</view>
+    <view class="info" style="color:grey">{{re.text}}</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<template is="footer" data="{{...source}}"></template>
+<template is="copyright"></template>

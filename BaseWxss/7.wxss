@@ -1,0 +1,93 @@
+.drawer_screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: #000;
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+.drawer_box {
+    width: 600rpx;
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 1001;
+    background: #f4f4f4;
+    margin: -300rpx 75rpx 0 75rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 10rpx 10rpx rgba(0,0,0,0.05);
+}
+
+.drawer_close {
+    width: 100rpx;
+    height: 100rpx;
+    text-align: center;
+    font-size: 100rpx;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 1002;
+    color: #fff;
+    margin-top: 450rpx;
+    margin-left: 325rpx;
+}
+
+.drawer_title {
+    background: #016F94;
+    color: #fff;
+    font-weight: bold;
+    height: 100rpx;
+    line-height: 100rpx;
+    font-size: 34rpx;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.drawer_content {
+    height: 300rpx;
+    padding: 20rpx;
+    overflow-y: scroll;
+}
+
+.drawer_content .content {
+    color: #515151;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    height: 60rpx;
+}
+
+.drawer_content text {
+    color: #016F94;
+    /* width: 60rpx; */
+    line-height: 60rpx;
+    text-align: center;
+    font-size: 32rpx;
+}
+
+.drawer_content textarea {
+    width: 560rpx;
+    color: #515151;
+    font-size: 30rpx;
+    height: 180rpx;
+}
+
+.drawer_box .btn {
+    margin: 0;
+    width: 560rpx;
+    background: #f4f4f4;
+    font-size: 32rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    color: #515151;
+    text-align: center;
+    border-top: 1px solid #e8e8ea;
+    padding: 20rpx;
+    box-sizing: content-box;
+}
