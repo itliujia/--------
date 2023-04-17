@@ -1,0 +1,52 @@
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view  slot="content" >
+我的动态</view></cu-custom>
+
+<view class="bg-white">
+<view class="grid col-5">
+<view class="text-center" bindtap="ChangeType"  wx:for="{{TypeList}}" data-idx="{{index}}" formType="submit"  >
+<button class="cu-btn round"  style="font-size: 25rpx;border-color:{{StyleColor}};{{TypeIndex==index?'color:#fff;background:'+StyleColor+';':'color:'+StyleColor}} " >{{item}}</button>
+</view>
+</view>
+</view>
+<block wx:for="{{re}}" >
+<view class="item color-shadow section-entry inner ripple fadeIn">
+    <view bindtap="{{c.uid?'ViewAuthor':''}}" class="top" data-uid="{{c.uid}}">
+        <view class="i-left">
+            <image class="c-u-img" src="{{item.avatarUrl}}" ></image>
+        </view>
+        <view class="i-anthor">
+            <view class="u-name">{{item.name}}
+              <view class="cu-tag radius" style=" padding: 0rpx; background-color: white; text-align: center;justify-content:center;align-items: center; ">
+      <image class="c-u-rz" src="../../img/renzheng_{{item.state}}.png"></image>
+              </view>
+      <view class="cu-tag radius" style="  padding: 0rpx; background-color: white;  text-align: center;justify-content: center;align-items: center; ">
+        <text style="color: #888;line-height: 30rpx;font-size: 24rpx;">{{item.utype}}</text>
+      </view>
+            </view>
+            <view class="time"></view>
+            <wxs src="../tool/service/time.wxs" module="timeTranslate"></wxs>
+            <view class="time">{{timeTranslate.timestampToTime(item.time)}}
+            <block wx:if="{{item.display=='none'}}">审核中</block>
+            <block wx:if="{{item.display=='success'}}">审核通过</block>
+            <block wx:if="{{item.display=='error'}}">审核未通过</block>
+            </view>
+        </view>
+        
+    </view>
+   
+
+    <view class="content" bindtap="ViewPage" data-cid="{{item.cid}}">     
+          <mp-html content="{{item.concent}}" />
+
+        <!-- </text> -->
+    </view>
+    <view class="image_one" wx:if="{{item.img!='undefined'}}">
+        <image bindtap="ViewImage"  data-current="{{item.img}}" mode="aspectFit" src="https://kcapi.itliujia.cn/upload/2022/{{item.img}}"></image>
+    </view>
+    <view class="page_link"  bindtap="ViewPage" data-cid="{{item.cid}}" data-display="{{item.display}}"  style="font-size: 20rpx;">查看动态评论</view>
+</view>
+</block>
+
+
+
+<view class="none" wx:if="{{re.length==0}}" style="margin-top:20rpx;">你暂时还没有发布新鲜事喔</view>

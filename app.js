@@ -5,6 +5,8 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+
     // 登录
     wx.login({
       success:function(e){
@@ -25,23 +27,30 @@ App({
             console.log(arr.data.data);
             console.log(arr); 
           getApp().globalData.openid = arr.data.data[0].openid
-          getApp().globalData.sno = arr.data.data[0].sno
+          getApp().globalData.uid = arr.data.data[0].uid
           getApp().globalData.name = arr.data.data[0].name
           getApp().globalData.phone = arr.data.data[0].phone
           getApp().globalData.nianji = arr.data.data[0].nianji
           getApp().globalData.xueyuan = arr.data.data[0].xueyuan
           getApp().globalData.zhuanye = arr.data.data[0].zhuanye
-          if(getApp().globalData.sno==''){
+          getApp().globalData.type = arr.data.data[0].type
+          getApp().globalData.x = arr.data.data[0].x
+          getApp().globalData.avatarUrl = arr.data.data[0].avatarUrl
+          if(getApp().globalData.uid==''){
             getApp().globalData.c=1
           }
           else{
             getApp().globalData.c=2
           }
-          console.log(getApp().globalData.c)
+          if(getApp().globalData.type=='学生'){
+            getApp().globalData.t=1
+          }
+          if(getApp().globalData.type=='教师'){
+            getApp().globalData.t=2
+          }
 
-         
-          
-           
+
+          console.log('c'+getApp().globalData.c)
           }
         })
         
@@ -56,6 +65,7 @@ App({
       }
     })
   },
+
   SetColor: function(t) {
     var a = wx.getStorageSync("StyleColor");
     t.setData({
@@ -67,16 +77,21 @@ App({
 },
   globalData: {
     src: "https://kcapi.itliujia.cn/api/",
+    baseurl:"https://kcapi.itliujia.cn/",
+    imgsrc: "https://kcapi.itliujia.cn/upload/2022/",
     url: "https://hntc.itliujia.cn/",
     NavBarHeight: wx.getSystemInfoSync().statusBarHeight,
     BarHeight:(wx.getSystemInfoSync().statusBarHeight)*2,
+    avatarUrl:'',
     openid:'',
-    sno:'',
+    uid:'',
     phone:'',
     name:'',
     xueyuan:'',
     nianji:'',
     zhuanye:'',
+    type:'',
+    t:'',
     c:''
   }
 })

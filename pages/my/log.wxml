@@ -1,2 +1,27 @@
-<!--pages/my/log.wxml-->
-<text>pages/my/log.wxml</text>
+<view class="NavBar" style="height:{{NavBarHeight}}px;"></view>
+<navigator class="return-btn" openType="navigateBack" style="margin-top:{{NavBarHeight}}px;">
+    <text class="fa fa-angle-left"></text> 返回</navigator>
+<view class="PageCont" style="padding-top:{{NavBarHeight}}px;">
+    <view class="top_img color-shadow-blur" style="background: #016F94;">
+        <image bindtap="copywxid" src="../../img/share.png"></image>
+    </view>
+    <view class="content_ color-shadow-lg">
+        在科传是河南开封科技传媒学院理工学院刘佳开发的一款校园小程序，也是毕业设计作品，致力于为科传学生提供好用又实用的校园应用。
+    </view>
+    <view class="content_ color-shadow-lg">
+        感谢胡威威院长、邵阳雪老师在开发中给予的指导与帮助。
+    </view>
+    <view class="cu-timeline">
+        <view class="cu-item " style="color: #016F94;" wx:for="{{re}}">
+            <view class="content color-shadow-blur" style="background-color: #016F94;color: white;">
+                <view class="cu-capsule radius">
+                    <view class="cu-tag bg-white" style="color: #016F94;" >{{item.vlog_version}}</view>
+                    <view class="cu-tag line-white">{{item.vlog_date}}</view>
+                </view>
+                <view class="margin-top-sm text-content">
+                    <view>{{item.vlog_content}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

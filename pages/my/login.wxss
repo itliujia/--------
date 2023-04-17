@@ -1,0 +1,151 @@
+
+
+@import "../../BaseWxss/11.wxss";
+
+@import "../../BaseWxss/10.wxss";
+
+@import "../../BaseWxss/9.wxss";
+
+.header {
+    width: 750rpx;
+    height: 350rpx;
+    background: #016F94;
+    margin-bottom: -100rpx;
+}
+
+.photo_box {
+    position: relative;
+}
+
+.photo {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 100rpx;
+    margin-left: 295rpx;
+    margin-top: -100rpx;
+    border: 6rpx solid #fff;
+}
+
+.photo_btn {
+    top: -134rpx;
+    left: 301rpx;
+    position: absolute;
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 100rpx;
+    background: rgba(0,0,0,0.3);
+    font-size: 26rpx;
+    line-height: 160rpx;
+    border: none;
+}
+
+.photo_btn::after {
+    border: none;
+}
+
+.log_box {
+    width: 600rpx;
+    margin: 75rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    box-shadow: 0 0rpx 30rpx rgba(0,0,0,0.05);
+    padding-top: 20rpx;
+}
+
+.score_log {
+    padding: 15rpx 40rpx;
+    border-bottom: 1rpx solid #f4f4f4;
+}
+
+.score_log .act {
+    color: #515151;
+    font-size: 36rpx;
+    line-height: 60rpx;
+}
+
+.score_log .time {
+    color: #999;
+    font-size: 26rpx;
+    line-height: 40rpx;
+}
+
+.btn_box {
+    display: flex;
+    color: #fff;
+    font-size: 34rpx;
+    height: 100rpx;
+    line-height: 80rpx;
+    text-align: center;
+}
+
+.btn_box .save {
+    width: 300rpx;
+    background: #016F94;
+    color: #fff;
+    margin: 0;
+    border-radius: 0;
+    height: 100rpx;
+    border-bottom-right-radius: 20rpx;
+}
+
+.btn_box .clear {
+    width: 300rpx;
+    background: #8d8b8b;
+    border-bottom-left-radius: 20rpx;
+}
+
+.num_info {
+    text-align: center;
+    line-height: 50rpx;
+    font-size: 32rpx;
+    color: #515151;
+}
+
+.num_info text {
+    font-weight: bold;
+    font-size: 40rpx;
+    color: #016F94;
+}
+
+.per_box {
+    margin-top: 10rpx;
+    padding: 20rpx 0rpx;
+    display: flex;
+}
+
+.per_box .per {
+    width: 100rpx;
+    background: #016F94;
+    height: 30rpx;
+    opacity: 1;
+}
+
+.num_box {
+    padding: 5rpx 40rpx;
+    display: flex;
+    height: 40rpx;
+}
+
+.num_box .color {
+    line-height: 40rpx;
+    text-align: center;
+    width: 100rpx;
+    background: #016F94;
+    border-radius: 10rpx;
+    color: #fff;
+    font-size: 26rpx;
+}
+
+.num_box .num {
+    margin-left: 10rpx;
+    line-height: 40rpx;
+    width: 150rpx;
+    color: #515151;
+    font-size: 28rpx;
+}
+
+.tips {
+    color: #B5B5B5;
+    font-size: 22rpx;
+    padding: 15rpx 20rpx;
+}

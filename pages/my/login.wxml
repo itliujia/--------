@@ -1,2 +1,101 @@
-<!--pages/my/login.wxml-->
-<text>pages/my/login.wxml</text>
+<view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<block>
+  <navigator class="return-btn" openType="navigateBack" style="margin-top:{{NavBarHeight}}px;">
+    <text class="fa fa-angle-left"></text> 返回
+  </navigator>
+  <view class="PageCont" style="padding-top:{{NavBarHeight}}px;">
+    <view class="login_top ">
+      <view class="icon">
+        <image  style="width: {{NavBarHeight*6}}rpx; height:  {{NavBarHeight*6}}rpx; " wx:if="{{at==2}}" src="{{userInfo.avatarUrl}}"></image>
+        <text class="fa fa-user-circle-o" style="color:{{StyleColor}};" wx:if="{{at==1}}"></text>
+        
+      </view>
+      <view class="text">在科传{{userType}}身份认证</view>
+    </view>
+
+    <block wx:if="{{userSelect}}">
+      <!-- <view class="padding flex flex-direction">
+        <button class="cu-btn bg-green lg" bindtap="getUserProfile">获取头像</button>
+        <button class="cu-btn bg-green lg" bindtap="userSelectTea">教师用户身份认证</button>
+        <button class="cu-btn bg-red margin-tb-sm lg" bindtap="userSelectStu">学生用户身份认证</button>
+      </view> -->
+
+      <view class="grid col-3 padding-sm">
+  <view class="margin-tb-sm text-center">
+    <button  hoverClass="none" bindtap="getUserProfile" class="cu-btn round bg-green shadow">获取头像</button>
+  </view>
+  <view class="margin-tb-sm text-center">
+    <button  hoverClass="none" bindtap="userSelectStu" class="cu-btn round bg-red shadow">学生认证</button>
+  </view>
+  <view class="margin-tb-sm text-center">
+    <button  hoverClass="none" bindtap="userSelectTea" class="cu-btn round bg-orange shadow">教师认证</button>
+  </view>
+</view>
+
+    </block>
+<block wx:if="{{teaInfoForm}}">
+  <form bindsubmit="addTeaInfo">
+      <view class="login-list">
+        <view class="login-item">
+          <input name="uid" placeholder="工号" type="number"></input>
+        </view>
+        <view class="login-item">
+          <input name="name" placeholder="姓名" type="text"></input>
+        </view>
+        <view class="login-item">
+          <input name="phone" placeholder="手机号" type="number"></input>
+        </view>
+
+        <view class="login-item">
+          <picker bindchange="bindPickerChangeXueyuan" name="xueyuan" value="{{xueyuan[index]}}" range="{{xueyuan}}" style="margin: 0 30rpx;font-size: 32rpx;color:gray;text-align: center;">
+    <view class="picker" style="margin: 0 30rpx;font-size: 32rpx;color: gray;text-align: center;">
+      {{xueyuan[index]?xueyuan[index]:'所在部门'}}
+    </view>
+  </picker>
+        </view>
+
+      </view>
+
+      <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+        <image src="../../img/login.png"></image>
+      </button>
+    </form>
+</block>
+
+<block wx:if="{{stuInfoForm}}">
+  <form bindsubmit="addStuInfo">
+      <view class="login-list">
+        <view class="login-item">
+          <input name="uid" placeholder="学号" type="number"></input>
+        </view>
+        <view class="login-item">
+          <input name="name" placeholder="姓名" type="text"></input>
+        </view>
+        <view class="login-item">
+          <input name="phone" placeholder="手机号" type="number"></input>
+        </view>
+
+        <view class="login-item">
+          <picker bindchange="bindPickerChangeNianji" name="nianji" value="{{nianji[i]}}" range="{{nianji}}" style="margin: 0 30rpx;font-size: 32rpx;color:gray;text-align: center;">
+    <view class="picker" style="margin: 0 30rpx;font-size: 32rpx;color: gray;text-align: center;">
+      {{nianji[i]?nianji[i]:'所在年级'}}
+    </view>
+  </picker>
+        </view>
+        <view class="login-item">
+          <picker bindchange="bindPickerChangeZhuanye" name="zhuanye" value="{{zhuanye[j]}}" range="{{zhuanye}}" style="margin: 0 30rpx;font-size: 32rpx;color:gray;text-align: center;">
+    <view class="picker" style="margin: 0 30rpx;font-size: 32rpx;color: gray;text-align: center;">
+      {{zhuanye[j]?zhuanye[j]:'所在专业'}}
+    </view>
+  </picker>
+        </view>
+
+      </view>
+
+      <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+        <image src="../../img/login.png"></image>
+      </button>
+    </form>
+</block>
+  </view>
+</block>

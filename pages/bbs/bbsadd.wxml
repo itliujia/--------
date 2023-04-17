@@ -1,0 +1,65 @@
+
+<view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<view class="TitleBar" style="background:{{StyleColor}};top:{{NavBarHeight}}px;">
+  <navigator hoverClass="none" class="left_edit" openType="navigateBack" >
+            <text class="fa fa-angle-left"></text> 返回</navigator>
+        <view class="title">发布新鲜事
+    </view>
+   
+</view>
+<view class="PageCont PageWithTitle" style="padding-top:{{NavBarHeight}}px;margin-top: 80rpx;">
+    <form bindsubmit="addbbsInfo">
+        
+        <view class="content">
+            <textarea name="concent" bindinput="bindinput" bindlinechange="bindlinechange" maxlength="0" name="content" placeholder="今天遇到了什么新鲜事儿？有什么问题想问大家？" style="height:{{TextBoxHeight}}rpx;"></textarea>
+            <navigator hoverClass="none" class="entry" url="">
+        <image src="{{avatarUrl}}" ></image>
+        <view class="left" style="    font-size: 20rpx;color: gray;"> {{name}}({{uid}})</view>
+    </navigator>
+            
+            <view class="bar">
+                <view bindtap="uploadimg" class="left" style=" font-weight: bold;color: {{StyleColor}};width: 350rpx;">
+                 <text class="fa fa-picture-o"></text> 添加图片</view>
+                <picker bindchange="bindPickerChange" name="type" value="{{array[index]}}" range="{{array}}" style="font-weight: bold;color: {{StyleColor}};width: 300rpx;font-size: 28rpx;height: 40rpx;line-height: 40rpx;"><view class="picker"><text class="cuIcon-radiobox" style="margin-right: 5rpx;"></text>{{array[index]?'已选：'+array[index]:'选择分类'}}</view></picker>
+                <button formType="submit" class="right" style="color: {{StyleColor}};font-size: 28rpx;">  <text class="fa fa-paper-plane"></text> 发布新鲜事</button>
+            </view>
+        </view>
+        <view class="img_box" wx:if="{{source}}">
+            <image  src="{{source}}" ></image>
+        </view>
+    </form>
+
+        <view class="foot1">
+            <text class="fa fa-question-circle"></text>个人发布需等待审核
+        </view>
+</view>
+<view class="content">
+    <navigator  hoverClass="none" class="entry" url="mybbs">
+        <image src="../../img/icons/bbs.png" style="background: rgb(255,196,79,0.1);"></image>
+        <view class="left">我有哪些新鲜事</view>
+        <view class="right" style="color:{{StyleColor}};">查看我的新鲜事
+      <text class="fa fa-angle-right"></text>
+        </view>
+    </navigator>
+    <navigator  hoverClass="none" class="entry" url="mycomment" hoverClass="none">
+        <image src="../../img/icons/comment.png" style="background: rgb(49,211,255,0.1);"></image>
+        <view class="left">我评论了谁</view>
+        <view class="right" style="color:{{StyleColor}};">查看我的评论
+      <text class="fa fa-angle-right"></text>
+        </view>
+    </navigator>
+    <navigator  hoverClass="none" class="entry" url="/pages/tool/library/index">
+        <image src="../../img/icons/lib.png" style="background: rgb(25,179,146,0.1);"></image>
+        <view class="left">图书馆借书</view>
+        <view class="right" style="color:{{StyleColor}};">查询图书馆馆藏
+      <text class="fa fa-angle-right"></text>
+        </view>
+    </navigator>
+    <navigator  hoverClass="none" class="entry" url="/pages/tool/service/baoxiu" hoverClass="none">
+        <image src="../../img/icons/service.png" style="background: rgb(238,106,28,0.1);"></image>
+        <view class="left">宿舍需要维修</view>
+        <view class="right" style="color:{{StyleColor}};">发布故障报修
+      <text class="fa fa-angle-right"></text>
+        </view>
+    </navigator>
+</view>

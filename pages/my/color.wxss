@@ -1,0 +1,28 @@
+@import "../../BaseWxss/9.wxss";
+@import "../../BaseWxss/1.wxss";
+
+.ColorBox {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.color {
+    border-radius: 10rpx;
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    width: 150rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    font-size: 28rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.diyBox {
+    margin-bottom: 35rpx;
+    margin-right: 35rpx;
+    width: 200rpx;
+    background: #47a86c;
+    border-radius: 10rpx;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}

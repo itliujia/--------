@@ -1,0 +1,103 @@
+<!-- <view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<view class="TitleBar" style="background:{{StyleColor}};top:{{NavBarHeight}}px;">
+    <view bindtap="toHome" class="left_edit" wx:if="{{scene==1007||scene==1008||scene==1014}}">
+        <text class="fa fa-angle-left"></text> 在科传</view>
+    <navigator class="left_edit" delta="1" openType="navigateBack" wx:else>
+        <text class="fa fa-angle-left"></text> 返回</navigator>
+    <view class="title">{{re.name}}
+  </view>
+</view> -->
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}">
+    <view slot="content">动态详情</view>
+</cu-custom>
+
+
+<view class="PageCont PageWithTitle" >
+    <view class="item">
+        <view bindtap="ViewAuthor" class="top" data-uid="{{uid}}">
+            <view class="i-left">
+                <image class="c-u-img" src="{{re.avatarUrl}}"></image>
+            </view>
+            <view class="i-anthor">
+                <view class="u-name">{{re.name}}
+                  <view class="cu-tag radius" style=" padding: 0rpx; background-color: white; text-align: center;justify-content:center;align-items: center; ">
+          <image class="c-u-rz" src="../../img/renzheng_{{re.state}}.png"></image>
+                  </view>
+          <view class="cu-tag radius" style="  padding: 0rpx; background-color: white;  text-align: center;justify-content: center;align-items: center; ">
+            <text style="color: #888;line-height: 30rpx;font-size: 24rpx;">{{re.utype}}</text>
+          </view>
+                </view>
+
+
+                <wxs src="../tool/service/time.wxs" module="timeTranslate"></wxs>
+                <view class="time">{{timeTranslate.timestampToTime(re.time)}}</view>
+            </view>
+         
+        </view>
+        <view bindlongtap="ContentLongTap" class="content">
+            <mp-html content="{{re.concent}}" />
+        </view>
+
+        <view class="image_one" wx:if="{{re.img!='undefined'}}">
+            <image bindtap="ViewImage"  data-current="{{re.img}}" mode="aspectFit" src="https://kcapi.itliujia.cn/upload/2022/{{re.img}}"></image>
+        </view>
+    </view>
+    <view class="item">
+        <view class="action_tab">
+            <view  style="color:{{tab=='comment'?StyleColor:'#515151'}};border-color:{{tab=='comment'?StyleColor:'#fff'}};">评论 {{CommentList.length>0?CommentList.length:''}}</view>
+        </view>
+        <view class="comment_list">
+            <view class="none" wx:if="{{CommentList.length==0}}">还没有评论哦</view>
+            <view class="top_c"  wx:for="{{CommentList}}">
+                <view class="i-left">
+                    <image bindtap="ViewAuthor" class="c-u-img" data-uid="{{uid?item.wxid:''}}" src="{{item.avatar}}"></image>
+                </view>
+                <view class="i-anthor">
+
+                    <view class="u-name">{{item.cname}}
+                  <view class="cu-tag radius" style=" padding: 0rpx; background-color: white; text-align: center;justify-content:center;align-items: center; ">
+          <image class="c-u-rz" src="../../img/renzheng_{{item.cstate}}.png"></image>
+                  </view>
+          <view class="cu-tag radius" style="  padding: 0rpx; background-color: white;  text-align: center;justify-content: center;align-items: center; ">
+            <text style="color: #888;line-height: 30rpx;font-size: 24rpx;">{{item.cutype}}</text>
+          </view>
+                </view>
+
+                    <!-- <view bindtap="ViewAuthor" class="u-name" >{{item.cname}}
+                    <image class="c-u-rz"  src="../../img/renzheng_{{item.cstate}}.png"></image>
+                    <view class="cu-tag radius" style="background-color: white;">
+            <text style="color: #888;line-height: 30rpx;font-size: 24rpx;">{{item.cutype}}</text>
+          </view>
+                    </view> -->
+                    <view class="time">{{timeTranslate.timestampToTime(item.ctime)}}</view>
+                    <view class="content">
+                        <view data-idx="{{index}}">{{item.comment}}</view>
+                        <view class="image_one" wx:if="{{item.cimg!='undefined'}}">
+            <image bindtap="ViewImage"  data-current="{{item.cimg}}" mode="aspectFit" src="https://kcapi.itliujia.cn/upload/2022/{{item.cimg}}"></image>
+        </view>
+                    </view>
+                </view>
+            </view>
+
+
+
+            
+        </view>
+    </view>
+</view>
+<block wx:if="{{c==1}}">
+    <form  class="comment_box" style="border-color:{{StyleColor}};">
+    <input disabled="true" style=" padding-left: 20rpx;" placeholder="想要评论？请先前往个人中心进行身份认证。" type="text" value="{{InputText}}"></input>
+    </form>
+</block>
+<block wx:if="{{c==2}}">
+    <form  disabled='{{isDisabled}}' bindsubmit="UserComment" class="comment_box" style="border-color:{{StyleColor}};">
+    <image  class="comment_photo" src="{{source}}" wx:if="{{source}}"></image>
+    <view bindtap="uploadimg" class="comment_photo fa fa-picture-o" style="color:{{StyleColor}};" wx:else></view>
+    <textarea autoHeight fixed focus="{{CommentFocus}}" name="comment" placeholder="评论新鲜事" type="text" value="{{InputText}}"></textarea>
+    <button class="comment_push fa fa-paper-plane" formType="submit"  style="color:{{StyleColor}};"></button>
+    </form>
+</block>
+
+
+

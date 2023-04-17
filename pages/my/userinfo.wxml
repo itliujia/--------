@@ -1,0 +1,86 @@
+<view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+
+    <view class="TitleBar" style="background:{{StyleColor}};top:{{NavBarHeight}}px;">
+        <navigator class="left_edit" openType="navigateBack">
+            <text class="fa fa-angle-left"></text> 返回</navigator>
+        <view class="title">身份认证信息
+    </view>
+    </view>
+    <view class="PageCont" style="padding-top:{{NavBarHeight}}px;">
+        <view class="header" style="background: {{StyleColor}};"></view>
+        <block wx:if="{{re.type=='学生'}}">
+            <view class="photo_box">
+            <image class="photo" src="{{re.avatarUrl}}"></image>
+        </view>
+          <view class="log_box" style="margin-top: -80rpx;">
+          <view class="score_log">
+                <view class="time">身份</view>
+                <view class="act">{{re.type}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">学号</view>
+                <view class="act">{{re.uid}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">姓名</view>
+                <view class="act">{{re.name}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">年级</view>
+                <view class="act">{{re.nianji}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">专业</view>
+                <view class="act">{{re.zhuanye}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">手机</view>
+                <view class="act">{{re.phone}}</view>
+            </view>
+            
+            <!-- <view class="btn_box">
+                <view bindtap="ClearStuInfo" class="clear">取消认证</view>
+                <button bindgetuserinfo="SaveStuInfo" class="save" openType="getUserInfo" style="background: {{StyleColor}};">确认提交</button>
+            </view> -->
+        </view>
+        </block>
+
+        <block wx:if="{{re.type=='教师'}}">
+            <view class="photo_box">
+            <image class="photo" src="{{re.avatarUrl}}"></image>
+        </view>
+          <view class="log_box" style="margin-top: -80rpx;">
+          <view class="score_log">
+                <view class="time">身份</view>
+                <view class="act">{{re.type}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">工号</view>
+                <view class="act">{{re.uid}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">姓名</view>
+                <view class="act">{{re.name}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">部门</view>
+                <view class="act">{{re.xueyuan}}</view>
+            </view>
+            <view class="score_log">
+                <view class="time">手机</view>
+                <view class="act">{{re.phone}}</view>
+            </view>
+            
+            <!-- <view class="btn_box">
+                <view bindtap="ClearStuInfo" class="clear">取消认证</view>
+                <button bindgetuserinfo="SaveStuInfo" class="save" openType="getUserInfo" style="background: {{StyleColor}};">确认提交</button>
+            </view> -->
+        </view>
+        </block>
+       
+       
+    </view>
+
+    <import src="../template/template.wxml"/>
+    <template is="copyright" ></template>
+

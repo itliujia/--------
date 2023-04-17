@@ -1,2 +1,16 @@
-<!--pages/my/color.wxml-->
-<text>pages/my/color.wxml</text>
+<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}">
+    <view slot="content">配色中心</view>
+</cu-custom>
+<view class="PageCont PageWithTitle" >
+    <view class="ColorBox">
+        <view bindtap="TapColor" class="color color-shadow-blur" data-color="{{item}}" style="background:{{item}}" wx:for="{{ColorList}}">{{item}}</view>
+    </view>
+    <form reportSubmit bindsubmit="MakeColorString">
+        <view class="login-list">
+            <view class="login-item">
+                <input name="color" placeholder="自定义配色（如#FFFFFF）" type="text"></input>
+            </view>
+        </view>
+        <button style="width:30vw ;" formType="submit">确 定</button>
+    </form>
+</view>

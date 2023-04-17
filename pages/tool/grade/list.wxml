@@ -5,12 +5,6 @@
 </cu-custom>
 
 
-<navigator hoverClass="none" bindtap="baoxiu" url="pages/tool/service/service">
-  <view class="section section-entry color-shadow-blur" style="background-color:{{StyleColor}};">
-    <view class="section-title">故障报修</view>
-  </view>
-</navigator>
-
 <navigator target="miniProgram" open-type="navigate" app-id="wxbebb3cdd9b331046" path="education/pages/NTCEresults/index/index?title=中小学教师资格考试(NTCE)成绩查询&footer=本服务由教育部教育考试院提供&id=165"  hoverClass="none">
   <view class="section section-entry color-shadow-blur" style="background-color:{{StyleColor}};">
     <view class="section-title">教资成绩</view>

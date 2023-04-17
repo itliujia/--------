@@ -29,7 +29,15 @@
     "pages/map/map",
     "pages/map/ViewPoi",
     "pages/tool/library/item",
-    "pages/tool/grade/list"
+    "pages/tool/grade/list",
+    "pages/my/userinfo",
+    "pages/my/edituserinfo",
+    "pages/bbs/bbsadd",
+    "pages/bbs/bbsdetail",
+    "pages/my/rulexy",
+    "pages/my/ruleys",
+    "pages/bbs/mybbs",
+    "pages/bbs/mycomment"
   ],
   "window": {
     "navigationStyle": "custom",
@@ -80,7 +88,7 @@
       },
       {
         "text": "百宝箱",
-        "pagePath": "pages/tool/tool",
+        "pagePath": "pages/tool/yiqing/index",
         "iconPath": "img/icon/app.png",
         "selectedIconPath": "img/icon/app_.png"
       },

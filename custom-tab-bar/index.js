@@ -6,22 +6,22 @@ Component({
         list: [ {
             selectedIconPath: "../img/icon/kebiao_.png",
             iconPath: "../img/icon/kebiao.png",
-            pagePath: "../kebiao/kebiao",
+            pagePath: "/pages/kebiao/kebiao",
             text: e ? "Schedule" : "课程表"
         }, {
             selectedIconPath: "../img/icon/news_.png",
             iconPath: "../img/icon/news.png",
-            pagePath: "../bbs/bbs",
-            text: e ? "News" : "社区"
+            pagePath: "/pages/bbs/bbs",
+            text: e ? "News" : "新鲜事"
         }, {
             selectedIconPath: "../img/icon/app_.png",
             iconPath: "../img/icon/app.png",
-            pagePath: "../tool/tool",
-            text: e ? "Tools" : "百宝箱"
+            pagePath: "/pages/tool/yiqing/index",
+            text: e ? "Tools" : "疫情防控"
         }, {
             selectedIconPath: "../img/icon/my_.png",
             iconPath: "../img/icon/my.png",
-            pagePath: "../my/my",
+            pagePath: "/pages/my/my",
             text: e ? "Me" : "我的"
         } ]
     },
@@ -35,7 +35,7 @@ Component({
         },
         enterPublish: function() {
             wx.switchTab({
-                url: "../home/home",
+                url: "/pages/home/home",
             });
         }
     }

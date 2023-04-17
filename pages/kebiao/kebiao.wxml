@@ -13,7 +13,7 @@
       <text class="icon-unfold lg text-black"></text>
     </view>
   </picker>
-  <text class=" icon-add settings text-black" style="margin-top:-{{NavBarHeight}}px;line-height:{{NavBarHeight}}px;height:{{NavBarHeight}}px;transform:rotate({{showModalStatus?135:0}}deg)" bindtap='listDisplay' data-statu="open"></text> 
+  <!-- <text class=" icon-add settings text-black" style="margin-top:-{{NavBarHeight}}px;line-height:{{NavBarHeight}}px;height:{{NavBarHeight}}px;transform:rotate({{showModalStatus?135:0}}deg)" bindtap='listDisplay' data-statu="open"></text>  -->
 
 </view>
 <view class="movie-container">
@@ -67,7 +67,7 @@
 
 </view>
 <!--mask-->
-<view class="drawer_screen" bindtap="listDisplay" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!-- <view class="drawer_screen" bindtap="listDisplay" data-statu="close" wx:if="{{showModalStatus}}"></view> -->
 <!--content-->
 <!--使用animation属性指定需要执行的动画-->
 <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
@@ -76,18 +76,18 @@
       <view class="cu-list grid col-3 no-border"  style="border-radius: {{NavBarHeight/2}}px;">
   <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px; border-top-left-radius: {{NavBarHeight/2}}px;background-color: white;">
       <navigator bindtap="Clear" hover-class="none">
-      <image  class="simage "src="../../img/icons/yiqing.png" style="background:#FFF4F4;"></image>
+      <image  class="simage "src="../../img/index/update.png" style="background:rgb(255,168,7,0.1);"></image>
       <text class="text-black text-bold" >更新课表</text>
         </navigator>
   </view>
   <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
-      <navigator url="../lib/lib" hover-class="none">
-      <image  class="simage "src="../../img/icons/lib.png" style="background:rgb(25,179,146,0.1);"></image>
+      <navigator bindtap="up" url="../lib/lib" hover-class="none">
+      <image  class="simage "src="../../img/index/add.png" style="background:rgb(25,179,146,0.1);"></image>
       <text class="text-black text-bold" >别班课表</text>
         </navigator>
   </view>
   <view class="cu-item "  style="padding-top: {{NavBarHeight/2}}px;background-color: white;">
-      <navigator url="../StuScore/index" hover-class="none">
+      <navigator bindtap="up" url="../StuScore/index" hover-class="none">
       <image  class="simage "src="../../img/index/share.png" style="background:rgb(249,220,180,0.2);"></image>
       <text class="text-black text-bold" >分享课表</text>
         </navigator>

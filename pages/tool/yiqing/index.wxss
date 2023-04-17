@@ -4,7 +4,9 @@
 
 @import "../../../BaseWxss/9.wxss"; 
 
-
+page {
+  padding-bottom: calc(96rpx + env(safe-area-inset-bottom));
+}
 
 
 /* .game-list {

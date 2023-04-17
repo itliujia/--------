@@ -1,0 +1,161 @@
+<view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<view class="PageCont" style="padding-top:{{NavBarHeight}}px;">
+  <view id="header">
+    <view class="bg color-shadow-blur" style="background-color: {{StyleColor}};"></view>
+
+
+    <view class="my_box">
+   
+   <block wx:if="{{c==1}}">
+    <view>
+        <view class="nickname">身份未认证
+          
+        </view>
+        <view class="xueyuan"></view>
+        <view class="xueyuan">点击下方『 身份认证 』进行认证</view>
+      </view>
+   </block>
+    <block wx:else>
+     <block wx:if="{{t==1}}">
+      <view>
+        <view class="nickname">{{name}}
+          <view class="cu-tag radius" style="background-color: white;margin:-4rpx 0 8rpx 0;">
+            <text style="color: {{StyleColor}};">{{type}}</text>
+          </view>
+        </view>
+        <view class="xueyuan">{{uid}}</view>
+        <view class="xueyuan">{{nianji}}</view>
+        <view class="xueyuan">{{zhuanye}}</view>
+      </view>
+      <image  class="avatar" style="margin-top: {{NavBarHeight}}rpx;" src="{{avatarUrl}}" ></image>
+     </block>
+     <block wx:if="{{t==2}}">
+    
+      <view>
+        <view class="nickname">{{name}}
+          <view class="cu-tag radius" style="background-color: white;margin:-4rpx 0 8rpx 0;">
+            <text style="color: {{StyleColor}};">{{type}}</text>
+          </view>
+        </view>
+        <view class="xueyuan">{{uid}}</view>
+        <view class="xueyuan">{{xueyuan}}</view>
+      </view>
+      <image  class="avatar" style="margin-top: {{NavBarHeight}}rpx;" src="{{avatarUrl}}" ></image>
+     </block>
+     
+    </block>
+    
+    </view>
+    
+  </view>
+
+
+  <view class="icon_box">
+        <navigator bindtap="mybbs"  hoverClass="none" class="icon inner ripple bounceIn" style="animation-delay: 0.25s;">
+            <image class="icon_img" src="../../img/icons/bbs.png"></image>
+            <view class="icon_title">我的动态</view>
+        </navigator>
+        <navigator  bindtap="mycomment" hoverClass="none" class="icon inner ripple bounceIn">
+            <image class="icon_img" src="../../img/icons/comment.png"></image>
+            <view class="icon_title">我的评论</view>
+        </navigator>
+        <navigator bindtap="mybaoxiu"  hoverClass="none" class="icon inner ripple bounceIn" style="animation-delay: 0.25s;">
+            <image class="icon_img" src="../../img/icons/service.png"></image>
+            <view class="icon_title">我的报修</view>
+        </navigator>
+    </view>
+
+
+
+  <view class="cells inner ripple fadeIn" style="animation-delay: 0.25s;">
+    <view class="cell" bindtap="upUserInfo" data-c="{{c}}">
+      <view class="cell-bd">
+        <text class="fa fa-refresh"></text>数据更新
+      </view>
+      <view class="cell-ft">
+        <text class="fa fa-angle-right"></text>
+      </view>
+    </view>
+
+    <view bindtap="addUserInfo" data-c="{{c}}" data-opinid="{{openid}}" class="cell">
+      <view class="cell-bd">
+        <text class="fa fa-check-circle-o"></text>身份认证
+      </view>
+      <view class="cell-ft">
+        <text class="fa fa-angle-right"></text>
+      </view>
+    </view>
+    <view bindtap="checkUserInfo" data-c="{{c}}" data-opinid="{{openid}}" class="cell">
+      <view class="cell-bd">
+        <text class="fa fa-user-circle"></text>认证信息
+      </view>
+      <view class="cell-ft">
+        <text class="fa fa-angle-right"></text>
+      </view>
+    </view>
+    <view bindtap="editUserInfo" data-c="{{c}}" data-opinid="{{openid}}" class="cell">
+      <view class="cell-bd">
+        <text class="fa fa-pencil"></text>修改认证
+      </view>
+      <view class="cell-ft">
+        <text class="fa fa-angle-right"></text>
+      </view>
+    </view>
+   
+
+
+  </view>
+
+
+  <view class="cells inner ripple fadeIn" style="animation-delay: 0.25s;">
+   
+
+    <view bindtap="ChangeStyle" class="cell">
+      <view class="cell-bd">
+        <text class="fa fa-tachometer"></text>更换配色
+      </view>
+      <view class="cell-ft"> <text class="fa fa-angle-right"></text></view>
+    </view>
+
+    <view bindtap="log" class="cell">
+      <view class="cell-bd">
+        <text class="fa fa-pencil-square-o"></text>更新日志
+      </view>
+      <view class="cell-ft"> <text class="fa fa-angle-right"></text></view>
+    </view>
+  </view>
+
+  <view class="cells inner ripple fadeIn" style="animation-delay: 0.25s;">
+    <view bindtap="xy" class="cell">
+      <view class="cell-bd">
+        <text class="fa  fa-id-card-o"></text>用户协议
+      </view>
+      <view class="cell-ft"> <text class="fa fa-angle-right"></text></view>
+    </view>
+    <view bindtap="ys" class="cell">
+      <view class="cell-bd">
+        <text class=" fa fa-user-secret"></text>隐私政策
+      </view>
+      <view class="cell-ft"> <text class="fa fa-angle-right"></text></view>
+    </view>
+
+
+    <button class="cell" openType="contact" sessionFrom="{\" nickName\":\"{{nickname}}\",\"avatarUrl\":\"{{photo}}\"}" wx:if="{{!IS_QQ}}">
+      <view class="cell-bd">
+        <text class="fa fa-commenting"></text>联系客服
+      </view>
+      <view class="cell-ft">
+        <text class="fa fa-angle-right"></text>
+      </view>
+    </button>
+  </view>
+</view>
+<view class="tabbar_page_blank"></view>
+<view class="box inner ripple bounceInUp" wx:if="{{ChangeStyle}}">
+  <view bindtap="SaveColor" class="color color-shadow-blur" data-color="{{item}}" style="background:{{item}};" wx:for="{{colors}}">
+    <text class="fa fa-check" wx:if="{{item==StyleColor}}"></text>
+  </view>
+  <view bindtap="MoreColor" class="color" style="background:{{StyleColor}};">
+    {{lang_en?'More':'更多'}}
+  </view>
+</view>

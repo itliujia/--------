@@ -14,14 +14,13 @@
         <view class="cu-item shadow">
             <view class="title">
                 <view class="action">
-                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
                     <text class="text-xl text-bold"> 你好科传</text>
                 </view>
             </view>
 
             <view class="cu-list grid col-4 no-border">
                 <view class="cu-item " wx:for="{{app_s.new}}" style="background-color: white;">
-                    <navigator url="{{item.url}}" hover-class="none">
+                    <navigator url="{{item.url}}" bindtap="{{item.up}}" hover-class="none">
                         <image class="simage " src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
                         <text class="text-black text-bold" >{{lang_en?item.cn_:item.cn}}</text>
                     </navigator>
@@ -38,19 +37,30 @@
         <view class="cu-item shadow">
             <view class="title">
                 <view class="action">
-                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;" ></text> -->
                     <text class="text-xl text-bold"> 学在科传</text>
                 </view>
             </view>
 
             <view class="cu-list grid col-4 no-border">
                 <view class="cu-item " wx:for="{{app_s.learn}}" style="background-color: white;">
-                    <navigator url="{{item.url}}" hover-class="none">
+                    <navigator url="{{item.url}}"  bindtap="{{item.up}}"  hover-class="none">
                         <image class="simage " src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
                         <text class="text-black text-bold"  >{{lang_en?item.cn_:item.cn}}</text>
                     </navigator>
-
                 </view>
+
+
+                <view class="cu-item "  style="background-color: white;">
+                    <navigator url="pages/kebiao/kebiao" hover-class="none">
+                        <image class="simage " src="../../img/icons/lib.png" style="background:rgb(25,179,146,0.1);"></image>
+                        <text class="text-black text-bold"  >课表查询</text>
+                    </navigator>
+                </view>
+
+
+
+
+
             </view>
 
 
@@ -66,44 +76,52 @@
                     <text class="text-xl text-bold"> 行在科传</text>
                 </view>
             </view>
-
             <view class="cu-list grid col-4 no-border">
                 <view class="cu-item " wx:for="{{app_s.live}}" style="background-color: white;">
-                    <navigator url="{{item.url}}" hover-class="none">
+                    <navigator url="{{item.url}}" hover-class="none" bindtap="{{item.up}}">
                         <image class="simage " src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
                         <text class="text-black text-bold">{{lang_en?item.cn_:item.cn}}</text>
                     </navigator>
 
+                  
+
                 </view>
+
+                <view class="cu-item " style="background-color: white;">
+                   <navigator url="" bindtap="baoxiu" hover-class="none">
+                       <image class="simage " src="../../img/icons/service.png" style="background:rgb(238,106,28,0.1);"></image>
+                       <text class="text-black text-bold">故障报修</text>
+                   </navigator>
+                   
+
+               </view>
             </view>
+            <!-- <view class="cu-list grid col-4 no-border">
+                <view class="cu-item " style="background-color: white;">
+                   
 
-
-
-        </view>
-    </view>
-
-    <view class="cu-card article no-card" style="animation-delay:450ms;margin: {{NavBarHeight/3}}px 0 0 0;">
-        <view class="cu-item shadow">
-            <view class="title">
-                <view class="action">
-                    <!-- <text class="cuIcon-newshot" style="color:{{StyleColor}};font-size: 48rpx;"></text> -->
-                    <text class="text-xl text-bold">再见科传</text>
-                </view>
-            </view>
-
-            <view class="cu-list grid col-4 no-border">
-                <view class="cu-item " wx:for="{{app_s.go}}" style="background-color: white;">
-                    <navigator url="{{item.url}}" hover-class="none">
-                        <image class="simage" src="../../img/icons/{{item.en}}.png" style="background:rgb({{item.color}});"></image>
-                        <text class="text-black text-bold"  >{{lang_en?item.cn_:item.cn}}</text>
+                    <navigator url="" bindtap="up" hover-class="none">
+                        <image class="simage " src="../../img/icons/card.png" style="background:rgb(238,106,28,0.1);"></image>
+                        <text class="text-black text-bold">校园卡</text>
                     </navigator>
+                    
 
                 </view>
-            </view>
+                <view class="cu-item " style="background-color: white;">
+                   <navigator url="" bindtap="baoxiu" hover-class="none">
+                       <image class="simage " src="../../img/icons/service.png" style="background:rgb(238,106,28,0.1);"></image>
+                       <text class="text-black text-bold">故障报修</text>
+                   </navigator>
+                   
+
+               </view>
+            </view> -->
 
 
 
         </view>
     </view>
+
+   
 
 </view>

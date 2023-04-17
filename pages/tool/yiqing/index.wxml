@@ -1,7 +1,75 @@
 <import src="../../template/template.wxml"/> 
-<cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
-疫情防控</view></cu-custom>
+<!-- <cu-custom bgColor="{{StyleColor}}" isCustom="{{true}}"><view slot="content" >
+疫情防控</view></cu-custom> -->
+
+<view>
+
+<view class="flex-sub" style="background-color:{{StyleColor}};height: {{NavBarHeight}}px;">
+</view>
+<view class="cu-bar" style="background-color:{{StyleColor}};height: {{NavBarHeight}}px;">
+<view class="content text-xxl">
+<text class="text-white text-bold" style="font-size: 20px;">疫情防控</text>
+</view>
+</view>
+
+</view>
+
+
+
+
+
+
+<view class="cu-list grid col-2 no-border">
+    <view class="cu-item">
+      <view class="cuIcon-{{item.icon}} text-red">
+      {{covn.chnia.qglj}}
+      </view>
+      <text>现有确诊</text>
+    </view>
+    <view class="cu-item">
+      <view class="cuIcon-{{item.icon}} text-orange">
+        {{covn.chnia.jzrxz}}
+      </view>
+      <text>较昨日新增</text>
+    </view>
+    <view class="cu-item">
+      <view class="cuIcon-{{item.icon}} text-pink">
+        {{covn.hn.qglj}}
+      </view>
+      <text>河南现有确诊</text>
+    </view>
+    <view class="cu-item">
+      <view class="cuIcon-{{item.icon}} text-mauve">
+        {{covn.hn.jzrxz}}
+      </view>
+      <text>河南较昨日新增</text>
+    </view>
+
+    <view class="flex-sub text-center">
+      <view class="text-sm padding">
+        <text class="text-grey">载至{{covn.time}} | 数据来源：国家卫健委</text>
+      </view>
+    </view>
+
+  </view>
+
+
+
+
+
+
+
+
+
 <view class="PageCont" >
+  <view class="cu-card article no-card" style="animation-delay:300ms;margin: {{NavBarHeight/3}}px 0 0 0;">
+  <view class="cu-item shadow">
+            <view class="title">
+                <view class="action">
+                    <text class="text-xl text-bold">疫情防控服务</text>
+                </view>
+            </view>
+
     <view class="game-list {{isIphoneX&&'iphone-x'}}">
         <navigator hover-class="none" appId="{{item.appid}}" bind:tap="gameTap" class="game-item" data-appid="{{item.appid}}" data-index="{{index}}" data-name="{{item.name}}" extraData="" openType="navigate" path="{{item.path}}" target="miniProgram" wx:for="{{gameList}}" wx:key="item.appid">
             <image class="game-item__icon" src="{{item.icon}}"></image>
@@ -11,10 +79,10 @@
             </view>
             <view class="game-item__btn" style="background:{{StyleColor}};">进入</view>
         </navigator>
-        <template is="footer" data="{{...source}}"></template>
+        <!-- <template is="footer" data="{{...source}}"></template> -->
     </view>
-    
+  </view>
+</view>
 </view>
 
-<template is="copyright" ></template>
 

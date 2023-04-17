@@ -29,7 +29,7 @@
 
 .header .add {
   line-height: 55rpx;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 10rpx;
   color: #47a86c;
   height: 55rpx;

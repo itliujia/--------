@@ -794,7 +794,7 @@ button.icon.lg {
 	justify-content: center;
 	box-sizing: border-box;
 	padding: 0rpx 16rpx;
-	height: 48rpx;
+	/* height: 48rpx; */
 	font-family: Helvetica Neue, Helvetica, sans-serif;
 	white-space: nowrap;
 }

@@ -28,6 +28,8 @@
                     <text class="title" style="color:{{StyleColor}};">{{item.repair_type}}</text>
                 </view>
                 <view class="task-item-content">
+                 <view>
+                        申报电话： {{item.repair_phone}}</view>
                     <view>
                         报修地址： {{item.repair_address}}</view>
                     <view>
@@ -119,16 +121,16 @@
 <view style="color:{{StyleColor}};text-align: center;font-size:50rpx;font-weight: bold;margin-top:20px;margin-left: {{NavBarHeight/2}}px;margin-right:{{NavBarHeight/2}}px ;">故障填报</view>
 <form  bindsubmit="addx">
 	<view class="cu-form-group margin-top">
-		<view class="title">你的学号</view>
-		<input maxlength="0" type="number" value="{{sno}}" name="sno" class="ree" placeholder="10位学号"></input>
+		<view class="title">你的学号(工号)</view>
+		<input maxlength="0" type="number" disabled="true" value="{{uid}}" name="uid" class="ree" placeholder="10位学号"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">你的姓名</view>
-		<input maxlength="0"  name="name"  value="{{name}}" class="ree" placeholder="你的姓名"></input>
+		<input maxlength="0"  name="name" disabled="true" value="{{name}}" class="ree" placeholder="你的姓名"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">手机号码</view>
-		<input  maxlength="0" type="number"  value="{{phone}}" name="phone" class="ree" placeholder="11位手机号"></input>
+		<input  maxlength="11" type="number"  value="{{phone}}" name="phone" class="ree" placeholder="11位手机号"></input>
   </view>
 	<view class="cu-form-group">
 		<view class="title">报修类型</view>
@@ -155,16 +157,16 @@
 <view style="color:{{StyleColor}};text-align: center;font-size:50rpx;font-weight: bold;margin-top:20px;margin-left: {{NavBarHeight/2}}px;margin-right:{{NavBarHeight/2}}px ;">修改报修工单</view>
 <form  bindsubmit="xiugaix">
 	<view class="cu-form-group margin-top">
-		<view class="title">你的学号</view>
-		<input maxlength="0" type="number" value="{{sno}}" name="sno" class="ree" placeholder="10位学号"></input>
+		<view class="title">你的学号(工号)</view>
+		<input maxlength="0" type="number"  disabled="true" value="{{uid}}" name="uid" class="ree" placeholder="10位学号"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">你的姓名</view>
-		<input maxlength="0"  name="name"  value="{{name}}" class="ree" placeholder="你的姓名"></input>
+		<input maxlength="0"  name="name"  disabled="true" value="{{name}}" class="ree" placeholder="你的姓名"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">手机号码</view>
-		<input  maxlength="0" type="number"  value="{{phone}}" name="phone" class="ree" placeholder="11位手机号"></input>
+		<input  maxlength="11" type="number"  value="{{phone}}" name="phone" class="ree" placeholder="11位手机号"></input>
   </view>
 	<view class="cu-form-group">
 		<view class="title">报修类型</view>

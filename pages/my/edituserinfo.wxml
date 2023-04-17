@@ -1,0 +1,81 @@
+<view class="NavBar" style="height:{{NavBarHeight}}px;background: {{StyleColor}};"></view>
+<block>
+  <navigator class="return-btn" openType="navigateBack" style="margin-top:{{NavBarHeight}}px;">
+    <text class="fa fa-angle-left"></text> 返回
+  </navigator>
+  <view class="PageCont" style="padding-top:{{NavBarHeight}}px;">
+    <view class="login_top ">
+      <view class="icon">
+        <image  style="width: {{NavBarHeight*6}}rpx; height:  {{NavBarHeight*6}}rpx; "  src="{{avatarUrl}}"></image>
+        
+      </view>
+      <view class="text">在科传{{type}}用户认证修改</view>
+    </view>
+
+
+<block wx:if="{{type=='教师'}}">
+  <form bindsubmit="editTeaInfo">
+      <view class="login-list">
+        <view class="login-item">
+          <input name="uid" placeholder="工号" value="{{uid}}" type="number"></input>
+        </view>
+        <view class="login-item">
+          <input name="name" placeholder="姓名" value="{{name}}" type="text"></input>
+        </view>
+        <view class="login-item">
+          <input name="phone" placeholder="手机号" value="{{phone}}" type="number"></input>
+        </view>
+
+        <view class="login-item">
+          <picker bindchange="bindPickerChangeXueyuan" name="xueyuan" value="{{xueyuan[index]?xueyuan[index]:xueyua}}" range="{{xueyuan}}" style="margin: 0 30rpx;font-size: 32rpx;color:gray;text-align: center;">
+    <view class="picker" style="margin: 0 30rpx;font-size: 32rpx;color: gray;text-align: center;">
+      {{xueyuan[index]?xueyuan[index]:xueyua}}
+    </view>
+  </picker>
+        </view>
+
+      </view>
+
+      <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+        <image src="../../img/login.png"></image>
+      </button>
+    </form>
+</block>
+
+<block wx:if="{{type=='学生'}}">
+  <form bindsubmit="editStuInfo">
+      <view class="login-list">
+        <view class="login-item">
+          <input name="uid" placeholder="学号" value="{{uid}}" type="number"></input>
+        </view>
+        <view class="login-item">
+          <input name="name" placeholder="姓名" value="{{name}}" type="text"></input>
+        </view>
+        <view class="login-item">
+          <input name="phone" placeholder="手机号" value="{{phone}}" type="number"></input>
+        </view>
+
+        <view class="login-item">
+          <picker bindchange="bindPickerChangeNianji" name="nianji" value="{{nianji[i]?nianji[i]:nianj}}" range="{{nianji}}" style="margin: 0 30rpx;font-size: 32rpx;color:gray;text-align: center;">
+    <view class="picker" style="margin: 0 30rpx;font-size: 32rpx;color: gray;text-align: center;">
+      {{nianji[i]?nianji[i]:nianj}}
+    </view>
+  </picker>
+        </view>
+        <view class="login-item">
+          <picker bindchange="bindPickerChangeZhuanye" name="zhuanye" value="{{zhuanye[j]?zhuanye[j]:zhuany}}" range="{{zhuanye}}" style="margin: 0 30rpx;font-size: 32rpx;color:gray;text-align: center;">
+    <view class="picker" style="margin: 0 30rpx;font-size: 32rpx;color: gray;text-align: center;">
+      {{zhuanye[j]?zhuanye[j]:zhuany}}
+    </view>
+  </picker>
+        </view>
+
+      </view>
+
+      <button class="login-button" formType="submit" style="background: {{StyleColor}};">
+        <image src="../../img/login.png"></image>
+      </button>
+    </form>
+</block>
+  </view>
+</block>
